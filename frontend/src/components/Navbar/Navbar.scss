@@ -1,0 +1,33 @@
+.navbar-main{
+    height:10vh;
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(90deg, #9796F0 0%, #FBC7D4 100%);
+
+    .nav-left{
+        width: 50%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        .navlogo{
+            height: 4rem;
+
+        }
+        .navlist{
+            height: 4rem;
+            width:35rem;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+          
+        }
+    }
+    .nav-right{
+        width: 20%;
+        margin-left: 26rem;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+    }
+}

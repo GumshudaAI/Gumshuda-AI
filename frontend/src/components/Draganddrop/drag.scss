@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#App {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image-preview {
+    display: flex;
+    flex-wrap: nowrap; 
+    overflow-x: auto; 
+  }
+  
+  .thumbnail {
+    width: 50px;
+    height: 50px; 
+    margin-right: 10px; 
+    border-radius: 50%; }
+  
+  .drop-zone {
+    // border: 2px dashed #aaa;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: border 0.3s ease;
+    width: 300px;
+    height: 242px;
+  }
+  
+  .drop-zone p {
+    margin: 0;
+    font-size: 16px;
+    color: #777;
+    margin: 4rem;
+  }
+  
+  .drop-zone img {
+    max-width: 83%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    display: block;
+    margin: 10px auto;
+    margin-left: 2rem;
+  }
+  
+  .upload-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-left: 0rem;
+    width: 54%;
+    margin: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .upload-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .confirm-upload-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .confirm-upload-button:hover {
+    background-color: #1f8c3e;
+  }
+  
+  .drop-zone.drag-over {
+    border-color: #007bff;
+    background-color: #f0f0f0;
+  }
+  
