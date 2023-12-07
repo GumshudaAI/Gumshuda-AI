@@ -1,12 +1,16 @@
-# import fastapi
-from fastapi import FastAPI, HTTPException, File, UploadFile, HTTPException, StreamingResponse
+from fastapi import FastAPI, HTTPException, File, UploadFile
 import io
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, StreamingResponse
 import base64
 from pinecone_text.sparse import BM25Encoder
-bm25 = BM25Encoder()
 import os
 import pinecone
+from PIL import Image
+import numpy as np
+import requests
+from dotenv import load_dotenv
+from sentence_transformers import SentenceTransformer
+import torch
 
 from dotenv import load_dotenv
 load_dotenv()  # Load environment variables from the .env file
