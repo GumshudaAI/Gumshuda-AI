@@ -103,3 +103,29 @@ def hybrid_scale(dense, sparse, alpha: float):
     }
     hdense = [v * alpha for v in dense]
     return hdense, hsparse
+
+
+# Search for an item in the database
+@app.post("/get_results/")
+async def get_results(description: str, image: UploadFile = File(...)):
+    image_content = await image.read()
+    pil_image = Image.open(io.BytesIO(image_content))
+    sparse_embeds = bm25.encode_documents(description)
+    dense_embeds = model.encode(pil_image).tolist()
+
+    try:
+        hdense, hsparse = hybrid_scale(dense_embeds, sparse_embeds, alpha=0.05)
+    except HTTPException as exc:
+        return exc  # Return the exception response directly
+
+    result = index.query(
+        top_k=5,
+        vector=hdense,
+        sparse_vector=hsparse,
+        include_metadata=True
+    )
+    if not result['matches']:
+        raise HTTPException(status_code=404, detail="No matching results found")
+    print(result['matches'])
+    img_urls = [r['metadata']['style_image'] for r in result['matches']]
+    return JSONResponse(content={'images': img_urls}, status_code=200)
