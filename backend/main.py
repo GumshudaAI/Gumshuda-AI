@@ -66,3 +66,29 @@ async def get_url(image_content):
         print(f"Failed to upload image. Status code: {response.status_code}")
         raise HTTPException(status_code=response.status_code, detail='Failed to upload image')
         return ''
+
+
+
+# Post request to add an item to the database
+@app.post("/post_request/")
+async def post_request(description: str, image: UploadFile = File(...)):
+    global _id
+    image_content = await image.read()
+    pil_image = Image.open(io.BytesIO(image_content))
+    sparse_embeds = bm25.encode_documents(description)
+    dense_embeds = model.encode(pil_image)
+    image_url = await get_url(image_content) 
+
+    metadata = {
+        "description": description,
+        "style_image": image_url
+    }
+    upserts = [{
+        'id': str(_id),
+        'sparse_values': sparse_embeds,
+        'values': dense_embeds,
+        'metadata': metadata
+    }]
+    _id += 1
+    index.upsert(upserts)
+    return JSONResponse(content={"message": "Request posted successfully"}, status_code=201)
