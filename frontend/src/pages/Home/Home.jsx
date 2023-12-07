@@ -34,12 +34,12 @@ const Carddata = [
 export default function Home() {
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate("/police")
-  }
+    navigate("/police");
+  };
   const handleParent = () => {
-    navigate("/parent")
-  }
-  
+    navigate("/parent");
+  };
+
   return (
     <div className="root">
       <NavBar />
@@ -47,14 +47,16 @@ export default function Home() {
         <div className="innerdiv">
           <div className="leftinnerdiv">
             <div className="heading">
-              <h1>
-                TALAASH AI
-              </h1>
+              <h1>TALAASH AI</h1>
               <p>Now finding the lost belongings is Easy</p>
             </div>
             <div className="innerbtn">
-              <button className="bt1" onClick={handleParent}>Report Missing Belonging</button>
-              <button className="bt2">Found Missing Belonging</button>
+              <button className="bt1" onClick={handleParent}>
+                Report Missing Belonging
+              </button>
+              <button className="bt2" onClick={handleParent}>
+                Found Missing Belonging
+              </button>
             </div>
           </div>
           <div className="rightinnerdiv">
@@ -71,7 +73,7 @@ export default function Home() {
               <h3>{data.head}</h3>
               <p>{data.para}</p>
               <span className="icon" onClick={handleClick}>
-                <ArrowCircleRightOutlinedIcon/>
+                <ArrowCircleRightOutlinedIcon />
               </span>
             </div>
           ))}
