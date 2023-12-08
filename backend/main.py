@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException, File, UploadFile
+from fastapi import FastAPI, HTTPException, File, UploadFile, Form
 import io
 from fastapi.responses import JSONResponse, StreamingResponse
 import base64
@@ -11,12 +11,20 @@ import requests
 from dotenv import load_dotenv
 from sentence_transformers import SentenceTransformer
 import torch
-
+from fastapi.middleware.cors import CORSMiddleware
 
 # Load environment variables from .env file
 load_dotenv()
 # Initialize FastAPI app
 app = FastAPI()
+# Allow all origins to access the API (replace "*" with the specific origins you want to allow)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Initialize BM25 Encoder
 bm25 = BM25Encoder()
@@ -71,7 +79,7 @@ async def get_url(image_content):
 
 # Post request to add an item to the database
 @app.post("/post_request/")
-async def post_request(description: str, image: UploadFile = File(...)):
+async def post_request(description:str=Form(...), image: UploadFile = File(...)):
     global _id
     image_content = await image.read()
     pil_image = Image.open(io.BytesIO(image_content))
@@ -107,7 +115,7 @@ def hybrid_scale(dense, sparse, alpha: float):
 
 # Search for an item in the database
 @app.post("/get_results/")
-async def get_results(description: str, image: UploadFile = File(...)):
+async def get_results(description: str=Form(...), image: UploadFile = File(...)):
     image_content = await image.read()
     pil_image = Image.open(io.BytesIO(image_content))
     sparse_embeds = bm25.encode_documents(description)

@@ -17,7 +17,7 @@ export default function Parent() {
     const formData = new FormData();
     formData.append("description", description);
     formData.append("image", file);
-
+    console.log("FormData:", formData);
     try {
       const response = await axios.post(
         "http://localhost:8000/get_results/",
@@ -54,25 +54,10 @@ export default function Parent() {
               <input type="file" onChange={handleFileChange} />
             </div>
 
-            <button type="Sumbit" onClick={handleSubmit}>
+            <button type="submit" onClick={handleSubmit}>
               Sumbit
             </button>
           </div>
-          {/* <div className="rightdi">
-            <div className="dd">
-              <Dragdrop />
-            </div>
-
-            {/* <Dialog
-              open={Open}
-              onClose={handleCloseDialog}
-              sx={{ width: "80vw", height: "80vh" }}
-            >
-              <DialogContent>
-                <Matching />
-              </DialogContent>
-            </Dialog>
-          </div> */}
         </div>
       </div>
     </>
