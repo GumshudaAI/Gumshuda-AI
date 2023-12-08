@@ -1,40 +1,37 @@
 import React, { useState } from "react";
-import Dialog from "@mui/material/Dialog";
-import DialogTitle from "@mui/material/DialogTitle";
-import DialogContent from "@mui/material/DialogContent";
 import "./Parent.scss";
-import Dragdrop from "../../components/Draganddrop/Draganddrop";
 import Navbar from "../../components/Navbar/Navbar";
-import Avatar from "@mui/joy/Avatar";
-import Matching from "../../components/Matching/Matching";
-
-const parentdata = [
-  {
-    Name: "Gagan",
-    Mobile: "8349061831",
-    Address: "Hostel no 01",
-  },
-  {
-    Name: "Aryan",
-    Mobile: "8349061831",
-    Address: "Hostel no 06",
-  },
-  {
-    Name: "Kartik",
-    Mobile: "8349061831",
-    Address: "Hostel no 05",
-  },
-];
+import axios from "axios";
 
 export default function Parent() {
-  const [Open, setOpen] = useState(false);
+  const [file, setFile] = useState(null);
+  const [description, setDescription] = useState("");
 
-  const handleOpenDialog = () => {
-    setOpen(true);
+  const handleFileChange = (event) => {
+    setFile(event.target.files[0]);
   };
 
-  const handleCloseDialog = () => {
-    setOpen(false);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData();
+    formData.append("description", description);
+    formData.append("image", file);
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/get_results/",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      console.log("Response:", response.data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
   return (
     <>
@@ -42,36 +39,31 @@ export default function Parent() {
       <div id="parent">
         <div className="div-inner-left">
           <div className="leftdetails">
-            <h4>Enter Your name</h4>
+            <h4>Enter Description of the product, including </h4>
             <div className="name">
-              <input type="name" placeholder="Name"></input>
+              <input
+                type="text"
+                value={description}
+                placeholder="Enter description"
+                onChange={(e) => setDescription(e.target.value)}
+              />
             </div>
-            <h4>Phonenumber</h4>
-            <div className="phonenumber">
-              <input type="name" placeholder="Phonenumber"></input>
-            </div>
-            <h4>Adhar</h4>
-            <div className="adhar">
-              <input type="name" placeholder="Adhar"></input>
-            </div>
-            <h4>Address</h4>
-            <div className="address">
-              <input type="name" placeholder="Address"></input>
-            </div>
-            <h4>Aboutchild</h4>
-            <div className="aboutchild">
-              <textarea placeholder="Details"></textarea>
-            </div>
-          </div>
 
-          <div className="rightdi">
+            <h4>Select image of your product </h4>
+            <div className="name">
+              <input type="file" onChange={handleFileChange} />
+            </div>
+
+            <button type="Sumbit" onClick={handleSubmit}>
+              Sumbit
+            </button>
+          </div>
+          {/* <div className="rightdi">
             <div className="dd">
               <Dragdrop />
             </div>
-            <button type="Sumbit" onClick={handleOpenDialog}>
-              Sumbit
-            </button>
-            <Dialog
+
+            {/* <Dialog
               open={Open}
               onClose={handleCloseDialog}
               sx={{ width: "80vw", height: "80vh" }}
@@ -80,29 +72,7 @@ export default function Parent() {
                 <Matching />
               </DialogContent>
             </Dialog>
-          </div>
-        </div>
-        <div className="div-inner-right">
-          <div className="details">
-            <h4>Gagan Shukla</h4>
-            <Avatar
-              style={{
-                marginRight: "2rem",
-                marginRight: "2rem",
-                marginLeft: "6rem",
-                marginTop: "7px",
-              }}
-              size="lg"
-            >
-              RE
-            </Avatar>
-          </div>
-
-          <div className="details-card-parent">
-            <p>Mobile : 8669528559</p>
-            <br></br>
-            <p>Adress : 84561</p>
-          </div>
+          </div> */}
         </div>
       </div>
     </>
