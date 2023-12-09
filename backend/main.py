@@ -12,6 +12,7 @@ from dotenv import load_dotenv
 from sentence_transformers import SentenceTransformer
 import torch
 from fastapi.middleware.cors import CORSMiddleware
+from uuid import uuid4
 
 # Load environment variables from .env file
 load_dotenv()
@@ -73,7 +74,6 @@ async def get_url(image_content):
     else:
         print(f"Failed to upload image. Status code: {response.status_code}")
         raise HTTPException(status_code=response.status_code, detail='Failed to upload image')
-        return ''
 
 
 
@@ -92,7 +92,7 @@ async def post_request(description:str=Form(...), image: UploadFile = File(...))
         "style_image": image_url
     }
     upserts = [{
-        'id': str(_id),
+        'id': str(uuid4()),
         'sparse_values': sparse_embeds,
         'values': dense_embeds,
         'metadata': metadata

@@ -36,10 +36,12 @@ export default function Home() {
   const handleClick = () => {
     navigate("/police");
   };
-  const handleParent = () => {
-    navigate("/parent");
+  const handleReport = () => {
+    navigate("/report");
   };
-
+  const handleFound = () => {
+    navigate("/found_missing");
+  };
   return (
     <div className="root">
       <NavBar />
@@ -47,14 +49,14 @@ export default function Home() {
         <div className="innerdiv">
           <div className="leftinnerdiv">
             <div className="heading">
-              <h1>TALAASH AI</h1>
+              <h1>Gumshuda AI</h1>
               <p>Now finding the lost belongings is Easy</p>
             </div>
             <div className="innerbtn">
-              <button className="bt1" onClick={handleParent}>
+              <button className="bt1" onClick={handleReport}>
                 Report Missing Belonging
               </button>
-              <button className="bt2" onClick={handleParent}>
+              <button className="bt2" onClick={handleFound}>
                 Found Missing Belonging
               </button>
             </div>
