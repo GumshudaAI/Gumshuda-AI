@@ -6,6 +6,9 @@ import axios from "axios";
 export default function Report() {
   const [file, setFile] = useState(null);
   const [description, setDescription] = useState("");
+  const [city, setCity] = useState("");
+  const [date, setDate] = useState("");
+  const [name, setName] = useState("");
   const [postSuccess, setPostSuccess] = useState(false);
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
@@ -46,9 +49,9 @@ export default function Report() {
               <div className="name">
                 <input
                   type="text"
-                  value={description}
+                  value={name}
                   placeholder="Enter Name"
-                  onChange={(e) => setDescription(e.target.value)}
+                  onChange={(e) => setName(e.target.value)}
                 />
               </div>
               <h4>Description: </h4>
@@ -56,7 +59,7 @@ export default function Report() {
                 <input
                   type="text"
                   value={description}
-                  placeholder="Enter description"
+                  placeholder="Enter Description"
                   onChange={(e) => setDescription(e.target.value)}
                 />
               </div>
@@ -65,18 +68,18 @@ export default function Report() {
               <div className="name">
                 <input
                   type="text"
-                  value={description}
+                  value={city}
                   placeholder="Enter City"
-                  onChange={(e) => setDescription(e.target.value)}
+                  onChange={(e) => setCity(e.target.value)}
                 />
               </div>
               <h4>Date when Lost: </h4>
               <div className="name">
                 <input
                   type="date"
-                  value={description}
+                  value={date}
                   placeholder="Enter Date"
-                  onChange={(e) => setDescription(e.target.value)}
+                  onChange={(e) => setDate(e.target.value)}
                 />
               </div>
 

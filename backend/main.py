@@ -13,6 +13,7 @@ from sentence_transformers import SentenceTransformer
 import torch
 from fastapi.middleware.cors import CORSMiddleware
 from uuid import uuid4
+import json
 
 # Load environment variables from .env file
 load_dotenv()
@@ -79,7 +80,19 @@ async def get_url(image_content):
 
 # Post request to add an item to the database
 @app.post("/post_request/")
-async def post_request(description:str=Form(...), image: UploadFile = File(...)):
+async def post_request(finalData: str = Form(...),image: UploadFile = File(...)):
+   
+    try:
+        final_data = json.loads(finalData)
+    except json.JSONDecodeError:
+        return JSONResponse(content={"error": "Invalid JSON data in finalData"}, status_code=400)
+
+        # Access the properties from the JSON object
+    name = final_data.get("name")
+    description = final_data.get("description")
+    city = final_data.get("city")
+    date = final_data.get("date")
+
     global _id
     image_content = await image.read()
     pil_image = Image.open(io.BytesIO(image_content))
@@ -89,7 +102,10 @@ async def post_request(description:str=Form(...), image: UploadFile = File(...))
 
     metadata = {
         "description": description,
-        "style_image": image_url
+        "style_image": image_url,
+        "name": name, 
+        "city": city, 
+        "date": date,
     }
     upserts = [{
         'id': str(uuid4()),
@@ -115,10 +131,23 @@ def hybrid_scale(dense, sparse, alpha: float):
 
 # Search for an item in the database
 @app.post("/get_results/")
-async def get_results(description: str=Form(...), image: UploadFile = File(...)):
+async def get_results(finalData: str = Form(...), image: UploadFile = File(...)):
+    final_data = None 
+    try:
+        final_data = json.loads(finalData)
+    except json.JSONDecodeError:
+        return JSONResponse(content={"error": "Invalid JSON data in finalData"}, status_code=400)
+
+    # Access the properties from the JSON object
+    name = final_data.get("name")
+    description = final_data.get("description")
+    city = final_data.get("city")
+    date = final_data.get("date")
+    fullDescription = description+ name+ city
+    print(fullDescription);
     image_content = await image.read()
     pil_image = Image.open(io.BytesIO(image_content))
-    sparse_embeds = bm25.encode_documents(description)
+    sparse_embeds = bm25.encode_documents(fullDescription)
     dense_embeds = model.encode(pil_image).tolist()
 
     try:
