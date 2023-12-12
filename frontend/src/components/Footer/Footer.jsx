@@ -1,11 +1,16 @@
 import React from "react";
 import "./Footer.scss";
-import logo from "./assets/Hanover 1logo.svg";
+// import logo from "./assets/Hanover 1logo.svg";
+import logo from "./assets/logo.png"
 import Twitter from "./assets/twitter.svg";
 import Fb from "./assets/fb.svg";
 import Insta from "./assets/insta.svg";
 import LinkedIn from "./assets/linkedin.svg";
-
+const style={
+  "height": "80px", 
+  "width": "110x",
+  "borderRadius": "10px"
+}
 export default function Footer() {
   return (
     <div className="footer-main">
@@ -13,7 +18,7 @@ export default function Footer() {
         <div className="top-left">
           <div className="internal-div-1">
             <div className="internal-div-1-top">
-              <img src={logo} alt="Logo" />{" "}
+              <img style={style} src={logo} alt="Logo" />{" "}
             </div>
             <div className="internal-div-1-mid">
               <p>

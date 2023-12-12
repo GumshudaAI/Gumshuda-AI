@@ -13,7 +13,7 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import logo from "./assets/logo.png";
-import { findMatchingRequiredOptions } from "web3modal";
+// import { findMatchingRequiredOptions } from "web3modal";
 const pages = ["Report Missing!", "Found it!"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
