@@ -73,8 +73,8 @@ export default function Footer() {
                     width: "10rem",
                     borderRadius: "0.2rem",
                     background: "rgba(38, 87, 164, 1)",
-                    color:"white",
-                    border:"None"
+                    color: "white",
+                    border: "None",
                   }}
                 >
                   Search
@@ -92,10 +92,10 @@ export default function Footer() {
               fontSize: "x-large",
               fontWeight: "bold",
               color: "grey",
-              textAlign:"center"
+              textAlign: "center",
             }}
           >
-            Copyright 2023, Rehome, All rights<br></br> reserved
+            Copyright 2023, Gumshuda AI, All rights<br></br> reserved
           </p>
         </div>
       </div>
