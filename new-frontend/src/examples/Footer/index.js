@@ -1,5 +1,3 @@
- 
-
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
 
@@ -86,7 +84,7 @@ function Footer({ company, links }) {
 
 // Setting default values for the props of Footer
 Footer.defaultProps = {
-  company: { href: "https://www.creative-tim.com/", name: "Creative Tim" },
+  company: { href: "https://www.whynesspower.tech", name: "Yashraj Shukla" },
   links: [
     { href: "https://www.creative-tim.com/", name: "Creative Tim" },
     { href: "https://www.creative-tim.com/presentation", name: "About Us" },

@@ -16,7 +16,7 @@ const bgImage =
   "https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-basic.jpg";
 
 function Post() {
-  const [rememberMe, setRememberMe] = useState(false);
+  const [postSuccess, setPostSuccess] = useState(false);
 
   const [file, setFile] = useState(null);
   const [description, setDescription] = useState("");
@@ -24,8 +24,6 @@ function Post() {
   const [date, setDate] = useState("");
   const [name, setName] = useState("");
   // const [postSuccess, setPostSuccess] = useState(false);
-  const [images, setImages] = useState([]);
-  const [showImages, setShowImages] = useState(false);
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
   };
@@ -50,24 +48,22 @@ function Post() {
           "Content-Type": "multipart/form-data",
         },
       });
-      setShowImages(true);
-      setImages(response.data.images);
-      console.log("Response:", response.data.images);
+      setPostSuccess(true);
+      console.log("Response:", response.data);
     } catch (error) {
-      setShowImages(false);
-      console.error("Error:", error);
+      setPostSuccess(false);
       console.error("Error:", error);
     }
   };
 
   return (
     <>
-      {!showImages && (
+      {!postSuccess && (
         <BasicLayout image={bgImage}>
           <Card m={5}>
             <ArgonBox p={3} textAlign="center">
               <ArgonTypography variant="h5" fontWeight="medium" sx={{ my: 1 }}>
-                Search for the item you have Lost!
+                Report the item you found
               </ArgonTypography>
             </ArgonBox>
             <ArgonBox px={3} pb={3} textAlign="center">
@@ -78,7 +74,7 @@ function Post() {
                 fontWeight="regular"
                 sx={{ mb: 3 }}
               >
-                There is a high chance that someone found the item, and reported it here
+                Report the item you found by mistake, there is always the owner searching for it!
               </ArgonTypography>
 
               <ArgonBox component="form" role="form">
@@ -148,7 +144,7 @@ function Post() {
                     // align="left"
                     // sx={{ mb: 2 }}
                   >
-                    Upload reference image
+                    Upload image
                   </ArgonTypography>
                   <ArgonInput
                     type="file"
@@ -167,39 +163,32 @@ function Post() {
           </Card>
         </BasicLayout>
       )}
-      {showImages && (
-        <BasicLayout vAlign={"start"} align={"flex-start"} image={bgImage}>
-          <ArgonBox
-            style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", overflow: "auto" }}
-            xs={12}
-            sm={12}
-            md={12}
-            lg={12}
-            xl={12}
-          >
-            {images.map((link, index) => (
-              <ArgonBox
-                key={index}
-                color="white"
-                bgColor="dark"
-                variant="gradient"
-                borderRadius="md"
-                shadow="lg"
-                opacity={1}
-                p={1}
-                m={1}
-                // display="flex"
-                textAlign="center"
-              >
-                <img src={link} style={{ width: "320px", height: "250px" }} alt={`${index}`} />
-                <ArgonBox mt={4} mb={1}>
-                  <ArgonButton type="button" onClick={handleClaim} color="success" fullWidth>
-                    Claim Item!
-                  </ArgonButton>
-                </ArgonBox>
-              </ArgonBox>
-            ))}
-          </ArgonBox>
+      {postSuccess && (
+        <BasicLayout vAlign={"center"} align={"center"} image={bgImage}>
+          <Card m={5} p={3}>
+            <ArgonBox
+              style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", overflow: "auto" }}
+              xs={12}
+              sm={12}
+              md={12}
+              lg={12}
+              xl={12}
+              color="success"
+              p={3}
+            >
+              <ArgonTypography display="inline" variant="h6" color="dark" fontWeight="regular">
+                Successfullp posted item! Thanks for you contribution &nbsp;
+                <ArgonBox
+                  component="i"
+                  color="primary"
+                  fontSize="14px"
+                  className="ni ni-spaceship"
+                />
+                <br />
+                The Item is now available on Search Page
+              </ArgonTypography>
+            </ArgonBox>
+          </Card>
         </BasicLayout>
       )}
     </>

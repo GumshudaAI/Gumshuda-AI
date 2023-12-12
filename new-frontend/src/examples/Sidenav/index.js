@@ -1,5 +1,3 @@
- 
-
 import { useEffect, useState } from "react";
 import Default from "layouts/dashboards/default";
 // react-router-dom components
@@ -30,6 +28,8 @@ import sidenavLogoLabel from "examples/Sidenav/styles/sidenav";
 
 // Gumshuda AI MUI context
 import { useArgonController, setMiniSidenav } from "context";
+import Search from "layouts/authentication/search-lost-item";
+import Post from "layouts/authentication/post-found-item";
 
 function Sidenav({ color, brand, brandName, routes, ...rest }) {
   const [openCollapse, setOpenCollapse] = useState(false);
@@ -40,7 +40,6 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
   const { pathname } = location;
   const collapseName = pathname.split("/").slice(1)[0];
   const itemName = pathname.split("/").slice(1)[1];
-
 
   const routes1 = [
     {
@@ -64,19 +63,20 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
       icon: <ArgonBox component="i" color="warning" fontSize="14px" className="ni ni-ui-04" />,
       collapse: [
         {
-          name: "Home",
-          key: "Home",
-          route: "/home",
-          component: <Default />,
-        }, 
+          name: "Search Lost Item",
+          key: "search-lost-item",
+          route: "/search-lost-item",
+          component: <Search />,
+        },
         {
-          name: "Home",
-          key: "Home",
-          route: "/home",
-          component: <Default />,
+          name: "Post Found Item",
+          key: "post-found-item",
+          route: "/post-found-item",
+          component: <Post />,
         },
       ],
-    }, {
+    },
+    {
       type: "collapse",
       name: "Your Account",
       key: "dashboards",
@@ -87,7 +87,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
           key: "SignIn",
           route: "/sign-in",
           component: <SignInBasic />,
-        }, 
+        },
         {
           name: "SignUp",
           key: "SignUp",
@@ -96,7 +96,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
         },
       ],
     },
-  ]
+  ];
   const closeSidenav = () => setMiniSidenav(dispatch, true);
 
   useEffect(() => {
@@ -170,7 +170,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
     });
 
   // Render all the routes from the routes.js (All the visible items on the Sidenav)
-  const renderRoutes = routes1  .map(
+  const renderRoutes = routes1.map(
     ({ type, name, icon, title, collapse, noCollapse, key, href, route }) => {
       let returnValue;
 

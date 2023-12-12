@@ -8,6 +8,7 @@ import ArgonBox from "components/ArgonBox";
 import ArgonButton from "components/ArgonButton";
 import ArgonProgress from "components/ArgonProgress";
 import ArgonTypography from "components/ArgonTypography";
+import { Link, NavLink } from "react-router-dom";
 
 // Data
 const data = [
@@ -24,9 +25,7 @@ function BalanceCard(props) {
         <ArgonBox p={3}>
           <ArgonBox mb={1}>
             <ArgonBox display="flex" alignItems="center" gap={0.5}>
-              <ArgonTypography component="sup" variant="caption" color="white">
-
-              </ArgonTypography>{" "}
+              <ArgonTypography component="sup" variant="caption" color="white"></ArgonTypography>{" "}
               <ArgonTypography component="span" variant="h2" color="white" fontWeight="bold">
                 {props.title}
               </ArgonTypography>
@@ -42,9 +41,11 @@ function BalanceCard(props) {
               {props.subtitle}
             </ArgonTypography>
           </ArgonBox>
-          <ArgonButton color="white" size="large" fullWidth>
-          {props.buttonTitle}
-          </ArgonButton>
+          <Link to={props.route}>
+            <ArgonButton color="white" size="large" fullWidth>
+              {props.buttonTitle}
+            </ArgonButton>
+          </Link>
         </ArgonBox>
         <ArgonBox pb={3} px={3}>
           <Grid container spacing={3}>

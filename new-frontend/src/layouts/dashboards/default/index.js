@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
- /* eslint-disable   */
+/* eslint-disable   */
 
 // @mui material components
 import Grid from "@mui/material/Grid";
@@ -47,23 +47,27 @@ function Default() {
     <DashboardLayout>
       <DashboardNavbar />
       <ArgonBox py={3}>
-      <Grid container item mb={5} xs={12} lg={9} spacing={3}>
-            
-            
-            <Grid container item xs={12} spacing={3}>
-              <Grid item xs={12} md={7}>
-                <BalanceCard buttonTitle="Search!" subtitle= "Search for your lost items!" title="Report Missing Belonging"/> 
-              </Grid>
-              <Grid item xs={12} md={7}>
-                <BalanceCard buttonTitle="Post!" subtitle= "If you found a stranded item, post it here!" title="Found Missing Belonging"/>
-              </Grid>
+        <Grid container item mb={5} xs={12} lg={9} spacing={3}>
+          <Grid container item xs={12} spacing={3}>
+            <Grid item xs={12} md={7}>
+              <BalanceCard
+                route="/search-lost-item"
+                buttonTitle="Search!"
+                subtitle="Search for your lost items!"
+                title="Search for a lost item"
+              />
             </Grid>
-
-
-            
+            <Grid item xs={12} md={7}>
+              <BalanceCard
+                route="/post-found-item"
+                buttonTitle="Post!"
+                subtitle="If you found a stranded item, post it here!"
+                title="Post a found Item"
+              />
+            </Grid>
           </Grid>
-      
-        
+        </Grid>
+
         <Grid container spacing={3} mb={3}>
           <Grid item xs={12} lg={7}>
             <GradientLineChart
@@ -88,7 +92,6 @@ function Default() {
           <Grid item xs={12} lg={5}>
             <Slider />
           </Grid>
-          
         </Grid>
         <Grid container spacing={3} mb={3}>
           <Grid item xs={12} md={6} lg={4}>
@@ -98,10 +101,9 @@ function Default() {
             <TodoList />
           </Grid>
           <Grid item xs={12} lg={5}>
-            <Post />
+            {/* <Post /> */}
           </Grid>
         </Grid>
-  
       </ArgonBox>
       <Footer />
     </DashboardLayout>

@@ -1,5 +1,3 @@
- 
-
 // react-github-btn
 import GitHubButton from "react-github-btn";
 
@@ -13,6 +11,7 @@ import Icon from "@mui/material/Icon";
 // @mui icons
 import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
+import LinkedinIcon from "@mui/icons-material/Facebook";
 
 // Gumshuda AI MUI components
 import ArgonBox from "components/ArgonBox";
@@ -149,7 +148,7 @@ function Configurator() {
             <ArgonBox mr={1.5}>
               <ArgonButton
                 component={Link}
-                href="//twitter.com/intent/tweet?text=Check%20Argon%20Dashboard%202%20PRO%20MUI%20made%20by%20%40CreativeTim%20%23webdesign%20%23dashboard%20%23react%20%mui&url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fargon-dashboard-pro-mui"
+                href="//twitter.com/whynesspower2"
                 target="_blank"
                 rel="noreferrer"
                 color="dark"
@@ -160,7 +159,7 @@ function Configurator() {
             </ArgonBox>
             <ArgonButton
               component={Link}
-              href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/argon-dashboard-pro-mui"
+              href="https://www.linkedin.com/in/whynesspower/"
               target="_blank"
               rel="noreferrer"
               color="dark"
