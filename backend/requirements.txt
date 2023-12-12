@@ -11,7 +11,7 @@ colorama
 datasets
 dill
 dnspython
-email-validator.post1
+email-validator
 exceptiongroup
 fastapi
 filelock
@@ -72,7 +72,7 @@ transformers
 typing-extensions
 tzdata
 urllib3
-uvicorn.post1
+uvicorn
 watchfiles
 websockets
 xxhash
