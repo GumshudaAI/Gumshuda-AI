@@ -1,5 +1,3 @@
- 
-
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
 
@@ -20,7 +18,7 @@ import Footer from "layouts/authentication/components/Footer";
 // Gumshuda AI MUI page layout routes
 import pageRoutes from "page.routes";
 
-function BasicLayout({ button, image, children }) {
+function BasicLayout({ vAlign, button, image, children, align }) {
   return (
     <PageLayout>
       {/* <DefaultNavbar
@@ -34,9 +32,9 @@ function BasicLayout({ button, image, children }) {
       /> */}
       <ArgonBox
         display="grid"
-        alignItems="center"
+        alignItems={vAlign}
         width="100%"
-        height="100vh"
+        height="100%"
         minHeight="100vh"
         sx={{
           backgroundImage: ({ functions: { linearGradient, rgba }, palette: { gradients } }) =>
@@ -51,10 +49,8 @@ function BasicLayout({ button, image, children }) {
         }}
       >
         <ArgonBox px={1} width="100%" mx="auto">
-          <Grid container justifyContent="center">
-            <Grid item xs={11} sm={9} md={5} lg={4} xl={3}>
-              {children}
-            </Grid>
+          <Grid container justifyContent={align}>
+            <Grid item>{children}</Grid>
           </Grid>
         </ArgonBox>
       </ArgonBox>
@@ -68,6 +64,8 @@ BasicLayout.defaultProps = {
   title: "",
   description: "",
   button: { color: "info" },
+  align: "center",
+  vAlign: "center",
 };
 
 // Typechecking props for the BasicLayout
@@ -75,7 +73,8 @@ BasicLayout.propTypes = {
   button: PropTypes.object,
   image: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
-  
+  align: PropTypes.node.string,
+  vAlign: PropTypes.node.string,
 };
 
 export default BasicLayout;

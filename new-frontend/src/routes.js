@@ -1,5 +1,3 @@
- 
-
 /** 
   All of the routes for the Gumshuda AI MUI are added here,
   You can add a new route, customize the routes and delete the routes here.
@@ -61,6 +59,10 @@ import ProductsList from "layouts/ecommerce/products/products-list";
 import OrderList from "layouts/ecommerce/orders/order-list";
 import OrderDetails from "layouts/ecommerce/orders/order-details";
 import Referral from "layouts/ecommerce/referral";
+
+import Post from "layouts/authentication/post-found-item";
+import Search from "layouts/authentication/search-lost-item";
+
 import SignInBasic from "layouts/authentication/sign-in/basic";
 import SignInCover from "layouts/authentication/sign-in/cover";
 import SignInIllustration from "layouts/authentication/sign-in/illustration";
@@ -393,6 +395,18 @@ const routes = [
             key: "illustration",
             route: "/authentication/sign-in/illustration",
             component: <SignInIllustration />,
+          },
+          {
+            name: "Search Lost Item",
+            key: "search-lost-item",
+            route: "/search-lost-item",
+            component: <Search />,
+          },
+          {
+            name: "Post Found Item",
+            key: "post-found-item",
+            route: "/post-found-item",
+            component: <Post />,
           },
         ],
       },
