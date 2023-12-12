@@ -164,7 +164,13 @@ function Search() {
         </BasicLayout>
       )}
 
-      {loader && <CircularProgress />}
+      {loader && (
+        <BasicLayout image={bgImage}>
+          <ArgonBox color="white">
+            <CircularProgress />
+          </ArgonBox>
+        </BasicLayout>
+      )}
       {showImages && !loader && (
         <BasicLayout vAlign={"start"} align={"flex-start"} image={bgImage}>
           <ArgonBox

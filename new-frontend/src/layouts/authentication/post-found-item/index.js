@@ -9,6 +9,7 @@ import ArgonTypography from "components/ArgonTypography";
 import ArgonInput from "components/ArgonInput";
 import ArgonButton from "components/ArgonButton";
 
+import CircularProgress from "@mui/material/CircularProgress";
 // Authentication layout components
 import BasicLayout from "layouts/authentication/components/BasicLayout";
 
@@ -17,6 +18,7 @@ const bgImage =
 
 function Post() {
   const [postSuccess, setPostSuccess] = useState(false);
+  const [loader, setLoader] = useState(false);
 
   const [file, setFile] = useState(null);
   const [description, setDescription] = useState("");
@@ -31,7 +33,7 @@ function Post() {
   const handleClaim = async (e) => {};
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    setLoader(true);
     const formData = new FormData();
     const finalData = JSON.stringify({
       description: description,
@@ -49,16 +51,18 @@ function Post() {
         },
       });
       setPostSuccess(true);
+      setLoader(false);
       console.log("Response:", response.data);
     } catch (error) {
       setPostSuccess(false);
+      setLoader(false);
       console.error("Error:", error);
     }
   };
 
   return (
     <>
-      {!postSuccess && (
+      {!postSuccess && !loader && (
         <BasicLayout image={bgImage}>
           <Card m={5}>
             <ArgonBox p={3} textAlign="center">
@@ -163,7 +167,15 @@ function Post() {
           </Card>
         </BasicLayout>
       )}
-      {postSuccess && (
+      {loader && (
+        <BasicLayout image={bgImage}>
+          <ArgonBox color="white">
+            <CircularProgress />
+          </ArgonBox>
+        </BasicLayout>
+      )}
+
+      {postSuccess && !loader && (
         <BasicLayout vAlign={"center"} align={"center"} image={bgImage}>
           <Card m={5} p={3}>
             <ArgonBox
