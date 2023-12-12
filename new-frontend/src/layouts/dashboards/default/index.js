@@ -28,18 +28,11 @@ import TeamMembers from "layouts/dashboards/default/components/TeamMembers";
 import TodoList from "layouts/dashboards/default/components/TodoList";
 import ProgressTrack from "layouts/dashboards/default/components/ProgressTrack";
 import BalanceCard from "layouts/dashboards/default/components/BalanceCard";
-import CryptoCard from "layouts/dashboards/default/components/CryptoCard";
 
 // Pages layout components
 import Post from "layouts/pages/profile/teams/components/Post";
 
-// Data
-import reportsBarChartData from "layouts/dashboards/default/data/reportsBarChartData";
 import gradientLineChartData from "layouts/dashboards/default/data/gradientLineChartData";
-import projectsTableData from "layouts/dashboards/default/data/projectsTableData";
-import salesTableData from "layouts/dashboards/default/data/salesTableData";
-import authorsTableData from "layouts/dashboards/default/data/authorsTableData";
-import categoriesListData from "layouts/dashboards/default/data/categoriesListData";
 
 function Default() {
   const { size } = typography;
@@ -88,20 +81,20 @@ function Default() {
               chart={gradientLineChartData}
             />
           </Grid>
-
+          {/* 
           <Grid item xs={12} lg={5}>
             <Slider />
-          </Grid>
-        </Grid>
-        <Grid container spacing={3} mb={3}>
-          <Grid item xs={12} md={6} lg={4}>
-            <TeamMembers />
-          </Grid>
-          <Grid item xs={12} md={6} lg={4}>
-            <TodoList />
-          </Grid>
-          <Grid item xs={12} lg={5}>
-            {/* <Post /> */}
+          </Grid> */}
+          <Grid container spacing={3} mb={3}>
+            <Grid item xs={12} md={6} lg={4}>
+              <TeamMembers />
+            </Grid>
+            <Grid item xs={12} md={6} lg={4}>
+              <TodoList />
+            </Grid>
+            <Grid item xs={12} lg={5}>
+              {/* <Post /> */}
+            </Grid>
           </Grid>
         </Grid>
       </ArgonBox>

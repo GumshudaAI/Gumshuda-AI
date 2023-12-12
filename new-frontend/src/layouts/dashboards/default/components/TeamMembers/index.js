@@ -60,7 +60,13 @@ function TeamMembers() {
                     />
                   </Grid>
                   <Grid item ml="auto">
-                    <ArgonButton variant="outlined" color="info" size="small">
+                    <ArgonButton
+                      href="https://www.twitter.com/whynesspower2"
+                      variant="outlined"
+                      color="info"
+                      size="small"
+                      target="__blank"
+                    >
                       Add
                     </ArgonButton>
                   </Grid>

@@ -57,7 +57,7 @@ function Footer({ company, links }) {
             &nbsp;{name}&nbsp;
           </ArgonTypography>
         </Link>
-        for a better web.
+        | Respect the grind
       </ArgonBox>
       <ArgonBox
         component="ul"
@@ -86,14 +86,13 @@ function Footer({ company, links }) {
 Footer.defaultProps = {
   company: { href: "https://www.whynesspower.tech", name: "Yashraj Shukla" },
   links: [
-    { href: "https://www.creative-tim.com/", name: "Creative Tim" },
-    { href: "https://www.creative-tim.com/presentation", name: "About Us" },
-    { href: "https://www.creative-tim.com/blog", name: "Blog" },
-    { href: "https://www.creative-tim.com/license", name: "License" },
+    { href: "https://www.linkedin.com/in/whynesspower/", name: "Yashraj Shukla" },
+    { href: "https://www.whynesspower.tech/", name: "About Us" },
+    { href: "https://www.whynesspower.tech/", name: "Blog" },
+    { href: "https://www.whynesspower.tech/", name: "License" },
   ],
 };
 
-// Typechecking props for the Footer
 Footer.propTypes = {
   company: PropTypes.objectOf(PropTypes.string),
   links: PropTypes.arrayOf(PropTypes.object),
