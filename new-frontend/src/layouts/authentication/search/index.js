@@ -8,21 +8,21 @@ import ArgonBox from "components/ArgonBox";
 import ArgonTypography from "components/ArgonTypography";
 import ArgonInput from "components/ArgonInput";
 import ArgonButton from "components/ArgonButton";
-
+import CircularProgress from "@mui/material/CircularProgress";
 // Authentication layout components
 import BasicLayout from "layouts/authentication/components/BasicLayout";
+import Footer from "examples/Footer";
 
 const bgImage =
   "https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-basic.jpg";
 
 function Search() {
-  const [rememberMe, setRememberMe] = useState(false);
-
   const [file, setFile] = useState(null);
   const [description, setDescription] = useState("");
   const [city, setCity] = useState("");
   const [date, setDate] = useState("");
   const [name, setName] = useState("");
+  const [loader, setLoader] = useState(false);
   // const [postSuccess, setPostSuccess] = useState(false);
   const [images, setImages] = useState([]);
   const [showImages, setShowImages] = useState(false);
@@ -33,6 +33,7 @@ function Search() {
   const handleClaim = async (e) => {};
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoader(true);
 
     const formData = new FormData();
     const finalData = JSON.stringify({
@@ -52,9 +53,11 @@ function Search() {
       });
       setShowImages(true);
       setImages(response.data.images);
+      setLoader(false);
       console.log("Response:", response.data.images);
     } catch (error) {
       setShowImages(false);
+      setLoader(false);
       console.error("Error:", error);
       console.error("Error:", error);
     }
@@ -62,7 +65,7 @@ function Search() {
 
   return (
     <>
-      {!showImages && (
+      {!showImages && !loader && (
         <BasicLayout image={bgImage}>
           <Card m={5}>
             <ArgonBox p={3} textAlign="center">
@@ -140,14 +143,7 @@ function Search() {
                 </ArgonBox>
 
                 <ArgonBox mb={1} textAlign="left">
-                  <ArgonTypography
-                    display="inline"
-                    variant="h6"
-                    color="dark"
-                    fontWeight="regular"
-                    // align="left"
-                    // sx={{ mb: 2 }}
-                  >
+                  <ArgonTypography display="inline" variant="h6" color="dark" fontWeight="regular">
                     Upload reference image
                   </ArgonTypography>
                   <ArgonInput
@@ -167,7 +163,9 @@ function Search() {
           </Card>
         </BasicLayout>
       )}
-      {showImages && (
+
+      {loader && <CircularProgress />}
+      {showImages && !loader && (
         <BasicLayout vAlign={"start"} align={"flex-start"} image={bgImage}>
           <ArgonBox
             style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", overflow: "auto" }}
@@ -188,7 +186,6 @@ function Search() {
                 opacity={1}
                 p={1}
                 m={1}
-                // display="flex"
                 textAlign="center"
               >
                 <img src={link} style={{ width: "320px", height: "250px" }} alt={`${index}`} />
@@ -202,6 +199,7 @@ function Search() {
           </ArgonBox>
         </BasicLayout>
       )}
+      {/* <Footer /> */}
     </>
   );
 }
