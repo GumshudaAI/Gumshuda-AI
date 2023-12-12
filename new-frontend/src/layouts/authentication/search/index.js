@@ -46,11 +46,15 @@ function Search() {
     formData.append("image", file);
     console.log("FormData:", formData);
     try {
-      const response = await axios.post("http://localhost:8000/get_results/", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      const response = await axios.post(
+        "https://gumshuda-backend.netlify.app/get_results/",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
       setShowImages(true);
       setImages(response.data.images);
       setLoader(false);
