@@ -34,7 +34,7 @@ multidict==6.0.4
 multiprocess==0.70.15
 networkx==3.2.1
 nltk==3.8.1
-numpy==1.26.2
+numpy
 orjson==3.9.10
 packaging==23.2
 pandas==2.1.3

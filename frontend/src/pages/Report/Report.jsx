@@ -18,7 +18,13 @@ export default function Report() {
     event.preventDefault();
 
     const formData = new FormData();
-    formData.append("description", description);
+    const finalData = JSON.stringify({
+      "description": description,
+      "name": name,
+      "city": city,
+      "date": date,
+    });
+    formData.append("finalData", finalData);
     formData.append("image", file);
     console.log("FormData:", formData);
     try {

@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 **/env/
+**/venv/
+venv/
+/backend/venv/
 **/__pycache__/
 **/Scripts/
 # testing
