@@ -61,7 +61,7 @@ import OrderDetails from "layouts/ecommerce/orders/order-details";
 import Referral from "layouts/ecommerce/referral";
 
 import Post from "layouts/authentication/post-found-item";
-import Search from "layouts/authentication/search-lost-item";
+import Search from "layouts/authentication/search";
 
 import SignInBasic from "layouts/authentication/sign-in/basic";
 import SignInCover from "layouts/authentication/sign-in/cover";

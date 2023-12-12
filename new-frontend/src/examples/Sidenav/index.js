@@ -28,7 +28,7 @@ import sidenavLogoLabel from "examples/Sidenav/styles/sidenav";
 
 // Gumshuda AI MUI context
 import { useArgonController, setMiniSidenav } from "context";
-import Search from "layouts/authentication/search-lost-item";
+import Search from "layouts/authentication/search";
 import Post from "layouts/authentication/post-found-item";
 
 function Sidenav({ color, brand, brandName, routes, ...rest }) {
