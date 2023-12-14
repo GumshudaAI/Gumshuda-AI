@@ -1,16 +1,13 @@
 {
-  "name": "argon-dashboard-pro-mui",
+  "name": "gumshuda-ai",
   "version": "3.0.0",
-  "author": "Creative Tim",
-  "license": "SEE LICENSE IN <https://www.creative-tim.com/license>",
-  "description": "React version of Gumshuda AI by Creative Tim",
-  "homepage": "https://demos.creative-tim.com/argon-dashboard-pro-material-ui/#/dashboards/default",
-  "bugs": {
-    "url": "https://github.com/creativetimofficial/ct-argon-dashboard-pro-material-ui/issues"
-  },
+  "author": "Yashraj Shukla",
+  "license": "",
+  "description": "React version of Gumshuda AI by Yashraj Shukla",
+  "homepage": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/creativetimofficial/ct-argon-dashboard-pro-material-ui.git"
+    "url": ""
   },
   "engines": {
     "node": "14 || 15 || 16",

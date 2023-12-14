@@ -51,7 +51,7 @@ function BasicLayout({ vAlign, button, image, children, align }) {
         <ArgonBox px={1} width="100%" mx="auto">
           <Grid container justifyContent={align}>
             <Grid item>{children}</Grid>
-          </Grid>
+            </Grid>
         </ArgonBox>
       </ArgonBox>
       {/* <Footer /> */}
@@ -73,8 +73,8 @@ BasicLayout.propTypes = {
   button: PropTypes.object,
   image: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
-  align: PropTypes.node.string,
-  vAlign: PropTypes.node.string,
+  align: PropTypes.string,
+  vAlign: PropTypes.string,
 };
 
 export default BasicLayout;

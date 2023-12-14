@@ -47,7 +47,7 @@ function Search() {
     console.log("FormData:", formData);
     try {
       const response = await axios.post(
-        "https://gumshuda-backend.netlify.app/get_results/",
+        "https://ddc3-34-74-131-113.ngrok-free.app/get_results/",
         formData,
         {
           headers: {
