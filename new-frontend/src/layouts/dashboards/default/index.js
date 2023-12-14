@@ -18,7 +18,7 @@ import SalesTable from "examples/Tables/SalesTable";
 import Table from "examples/Tables/Table";
 import CategoriesList from "examples/Lists/CategoriesList";
 import GradientLineChart from "examples/Charts/LineCharts/GradientLineChart";
-
+import ComImage from "./data/favicon.png";
 // Gumshuda AI MUI base styles
 import typography from "assets/theme/base/typography";
 
@@ -39,6 +39,9 @@ function Default() {
   return (
     <DashboardLayout>
       <DashboardNavbar />
+      {/* <ArgonBox py={3}>
+        <img width="600" height="400" src={ComImage}></img>
+      </ArgonBox> */}
       <ArgonBox py={3}>
         <Grid container item mb={5} xs={12} lg={9} spacing={3}>
           <Grid container item xs={12} spacing={3}>
@@ -60,7 +63,6 @@ function Default() {
             </Grid>
           </Grid>
         </Grid>
-
         <Grid container spacing={3} mb={3}>
           <Grid item xs={12} lg={7}>
             <GradientLineChart
@@ -85,7 +87,7 @@ function Default() {
           <Grid item xs={12} lg={5}>
             <Slider />
           </Grid> */}
-          <Grid container spacing={3} mb={3}>
+          <Grid container spacing={3} m={2}>
             <Grid item xs={12} md={6} lg={4}>
               <TeamMembers />
             </Grid>
