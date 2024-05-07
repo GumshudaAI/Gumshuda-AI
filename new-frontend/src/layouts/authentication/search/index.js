@@ -46,15 +46,11 @@ function Search() {
     formData.append("image", file);
     console.log("FormData:", formData);
     try {
-      const response = await axios.post(
-        "https://ddc3-34-74-131-113.ngrok-free.app/get_results/",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const response = await axios.post("http://localhost:8000/get_results/", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
       setShowImages(true);
       setImages(response.data.images);
       setLoader(false);

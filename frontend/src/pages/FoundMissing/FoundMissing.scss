@@ -153,3 +153,11 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  #parent {
+    .div-inner-left {
+      margin-left: 0rem;
+    }
+  }
+}

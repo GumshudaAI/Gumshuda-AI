@@ -75,6 +75,9 @@ async def get_url(image_content):
     else:
         print(f"Failed to upload image. Status code: {response.status_code}")
         raise HTTPException(status_code=response.status_code, detail='Failed to upload image')
+@app.get("/heartbeat")
+async def heartbeat():
+    return JSONResponse(content='Server is', status_code=200)
 
 
 

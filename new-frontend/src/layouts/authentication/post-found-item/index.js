@@ -46,7 +46,7 @@ function Post() {
     console.log("FormData:", formData);
     try {
       const response = await axios.post(
-        "https://ddc3-34-74-131-113.ngrok-free.app//post_request/",
+        "http://localhost:8000/post_request/",
         formData,
         {
           headers: {

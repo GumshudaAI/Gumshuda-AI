@@ -49,7 +49,7 @@ export default function Home() {
         <div className="innerdiv">
           <div className="leftinnerdiv">
             <div className="heading">
-              <h1>Gumshuda AI</h1>
+              <h1>Talaash AI</h1>
               <p>Now finding the lost belongings is Easy</p>
             </div>
             <div className="innerbtn">

@@ -123,6 +123,15 @@
       }
     }
   }
+  @media (max-width: 768px) {
+    #main {
+      .innerdiv {
+        padding: 1em;
+        justify-content: flex-start;
+      }
+      .innerbtn {
+        justify-content: column;
+      }
+    }
+  }
 }
-
-

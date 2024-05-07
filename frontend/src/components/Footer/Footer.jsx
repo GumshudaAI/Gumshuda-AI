@@ -1,16 +1,16 @@
 import React from "react";
 import "./Footer.scss";
 // import logo from "./assets/Hanover 1logo.svg";
-import logo from "./assets/logo.png"
+import logo from "./assets/logo.png";
 import Twitter from "./assets/twitter.svg";
 import Fb from "./assets/fb.svg";
 import Insta from "./assets/insta.svg";
 import LinkedIn from "./assets/linkedin.svg";
-const style={
-  "height": "80px", 
-  "width": "110x",
-  "borderRadius": "10px"
-}
+const style = {
+  height: "80px",
+  width: "110x",
+  borderRadius: "10px",
+};
 export default function Footer() {
   return (
     <div className="footer-main">
@@ -22,8 +22,9 @@ export default function Footer() {
             </div>
             <div className="internal-div-1-mid">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-                eiusmod tempor incididunt ut labore et{" "}
+                Generative AI app for Lost and Found belonggins using Open AI
+                clip-vit-large to create image embeddings and search powered by
+                a vector database{" "}
               </p>{" "}
             </div>
             <div className="internal-div-1-bottom">
@@ -58,7 +59,7 @@ export default function Footer() {
               <div className="list">Contact Us</div>
             </div>
           </div>
-          <div className="internal-div-4">
+          {/* <div className="internal-div-4">
             <div className="internal-div-4-top">
               <p style={{ fontSize: "large", fontWeight: "bold" }}>
                 Track Your Ticket
@@ -86,7 +87,7 @@ export default function Footer() {
                 </button>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="bottom">
@@ -100,7 +101,7 @@ export default function Footer() {
               textAlign: "center",
             }}
           >
-            Copyright 2023, Gumshuda AI, All rights<br></br> reserved
+            Copyright 2024, Talaash AI, All rights<br></br> reserved
           </p>
         </div>
       </div>
