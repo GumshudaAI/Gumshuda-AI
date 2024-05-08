@@ -7,7 +7,6 @@
 **/env/
 **/venv/
 venv/
-**/Dockerfile
 **/.dockerignore
 /backend/venv/
 **/__pycache__/
