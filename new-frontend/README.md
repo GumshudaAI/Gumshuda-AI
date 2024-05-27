@@ -1,3 +1,6 @@
-# Welcome to the home page of Gumshuda AI
+# The new frontend is the MUI components based Frontend application
 
-Currently the backend has been supported by not a stable solutin hence you might feel inconvenience. Thanks for understanding
+## Deployment: Dec 2023, failed on vercel (can't build the application)
+
+Add .env file in the new-frontend with the value of
+`GENERATE_SOURCEMAP=false`
