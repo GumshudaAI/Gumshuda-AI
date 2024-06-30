@@ -12,6 +12,12 @@ https://youtu.be/rmR56sffJNs?si=5kFHzQZjCUmAKueC
 5. run the server by `uvicorn main:app --host 0.0.0.0 --port 8000`
 6. server is running on port 8000
 
+OR 
+(incase the above doesn't work, you can switch to running the docker container)
+`docker build . -t my-image`
+`docker run my-image`
+
+
 ## Frontend
 There are two types of frontend available.
 `/frontend` has the react +  `scss` based frontend  (hosted on vercel well)
@@ -33,7 +39,7 @@ PINECONE_API_KEY= <get this on https://www.pinecone.io>
 PINECONE_ENVIRONMENT=<get this on https://www.pinecone.io>
 IMG_DB_API_KEY=<get this one https://api.imgbb.com/>
 OPENAI_API_KEY=<open ai api key>
-
+INDEX_NAME=<name which you have provided to your database index>
 
 ## Deployment: 
 `frontend` is deployed on vercel 

@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from dotenv import load_dotenv
 import pinecone
 import os
 
@@ -8,6 +7,7 @@ from routers import heartbeat, post_request, get_results
 from utils import init_bm25_encoder, init_sentence_transformer
 
 # Load environment variables from .env file
+from dotenv import load_dotenv
 load_dotenv()
 
 # Initialize FastAPI app
@@ -22,15 +22,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Initialize BM25 Encoder
+# Initialize BM25 Encoder and Sentence Transformer model
 bm25 = init_bm25_encoder()
-
-# Initialize Sentence Transformer model
 model = init_sentence_transformer()
 
 # Connect to Pinecone
-api_key = os.getenv("PINECONE_API_KEY") or "PINECONE_API_KEY"
-env = os.getenv("PINECONE_ENVIRONMENT") or "PINECONE_ENVIRONMENT"
+api_key = os.getenv("PINECONE_API_KEY")
+env = os.getenv("PINECONE_ENVIRONMENT")
 pinecone.init(api_key=api_key, environment=env)
 
 # Define Pinecone index
