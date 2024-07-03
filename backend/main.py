@@ -9,16 +9,18 @@ from PIL import Image
 import numpy as np
 import requests
 from dotenv import load_dotenv
-from sentence_transformers import SentenceTransformer
 import torch
 from fastapi.middleware.cors import CORSMiddleware
 from uuid import uuid4
 import json
+import openai  # Import OpenAI library
 
 # Load environment variables from .env file
 load_dotenv()
+
 # Initialize FastAPI app
 app = FastAPI()
+
 # Allow all origins to access the API (replace "*" with the specific origins you want to allow)
 app.add_middleware(
     CORSMiddleware,
@@ -30,11 +32,9 @@ app.add_middleware(
 
 # Initialize BM25 Encoder
 bm25 = BM25Encoder()
-
-# Initialize Sentence Transformer model
-device = 'cuda' if torch.cuda.is_available() else 'cpu'
-model = SentenceTransformer('sentence-transformers/clip-ViT-B-32', device=device)
-
+NAMESPACE = "gumshuda"
+# Initialize OpenAI API key
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Connect to Pinecone
 api_key = os.getenv("PINECONE_API_KEY") or "PINECONE_API_KEY"
@@ -42,19 +42,17 @@ env = os.getenv("PINECONE_ENVIRONMENT") or "PINECONE_ENVIRONMENT"
 pinecone.init(api_key=api_key, environment=env)
 
 # Define Pinecone index
-# index_name = "talaash-ai"
-index_name="final-database"
+index_name = "final-database"
 if index_name not in pinecone.list_indexes():
     pinecone.create_index(index_name, dimension=512, metric="dotproduct", pod_type="s1")
 index = pinecone.Index(index_name)
-
 
 # Temporary text for BM25 fitting
 temp = "Import errors are caused due to circular imports most of the time"
 _id = 100001
 bm25.fit(temp)
 
-# Connect to Img DB
+# Connect to Img BB
 imgbb_api_key = os.getenv("IMG_DB_API_KEY")
 
 # Convert PIL image to base64 and upload to Img BB
@@ -75,22 +73,30 @@ async def get_url(image_content):
     else:
         print(f"Failed to upload image. Status code: {response.status_code}")
         raise HTTPException(status_code=response.status_code, detail='Failed to upload image')
+
 @app.get("/heartbeat")
 async def heartbeat():
     return JSONResponse(content='Server is', status_code=200)
 
+# Function to generate embeddings using OpenAI API
+async def generate_embeddings(text):
+    response = openai.embeddings.create(
+        input=text,
+        model="text-embedding-3-small", # or any other model suitable for your use case
+        dimensions=512,
+    )
+    print(response)
+    embeddings = response.data[0].embedding
+    return embeddings
 
-
-# Post request to add an item to the database
 @app.post("/post_request/")
-async def post_request(finalData: str = Form(...),image: UploadFile = File(...)):
-   
+async def post_request(finalData: str = Form(...), image: UploadFile = File(...)):
     try:
         final_data = json.loads(finalData)
     except json.JSONDecodeError:
         return JSONResponse(content={"error": "Invalid JSON data in finalData"}, status_code=400)
 
-        # Access the properties from the JSON object
+    # Access the properties from the JSON object
     name = final_data.get("name")
     description = final_data.get("description")
     city = final_data.get("city")
@@ -100,14 +106,14 @@ async def post_request(finalData: str = Form(...),image: UploadFile = File(...))
     image_content = await image.read()
     pil_image = Image.open(io.BytesIO(image_content))
     sparse_embeds = bm25.encode_documents(description)
-    dense_embeds = model.encode(pil_image)
-    image_url = await get_url(image_content) 
+    dense_embeds = await generate_embeddings(description)
+    image_url = await get_url(image_content)
 
     metadata = {
         "description": description,
         "style_image": image_url,
-        "name": name, 
-        "city": city, 
+        "name": name,
+        "city": city,
         "date": date,
     }
     upserts = [{
@@ -117,8 +123,10 @@ async def post_request(finalData: str = Form(...),image: UploadFile = File(...))
         'metadata': metadata
     }]
     _id += 1
-    index.upsert(upserts)
+    index.upsert(upserts, namespace=NAMESPACE)  # Include namespace here
     return JSONResponse(content={"message": "Request posted successfully"}, status_code=201)
+
+
 
 # Helper function to perform hybrid scaling of vectors
 def hybrid_scale(dense, sparse, alpha: float):
@@ -131,11 +139,10 @@ def hybrid_scale(dense, sparse, alpha: float):
     hdense = [v * alpha for v in dense]
     return hdense, hsparse
 
-
 # Search for an item in the database
 @app.post("/get_results/")
 async def get_results(finalData: str = Form(...), image: UploadFile = File(...)):
-    final_data = None 
+    final_data = None
     try:
         final_data = json.loads(finalData)
     except json.JSONDecodeError:
@@ -146,12 +153,12 @@ async def get_results(finalData: str = Form(...), image: UploadFile = File(...))
     description = final_data.get("description")
     city = final_data.get("city")
     date = final_data.get("date")
-    fullDescription = description+ name+ city
-    print(fullDescription);
+    fullDescription = description + name + city
+    print(fullDescription)
     image_content = await image.read()
     pil_image = Image.open(io.BytesIO(image_content))
     sparse_embeds = bm25.encode_documents(fullDescription)
-    dense_embeds = model.encode(pil_image).tolist()
+    dense_embeds = await generate_embeddings(description)
 
     try:
         hdense, hsparse = hybrid_scale(dense_embeds, sparse_embeds, alpha=0.05)
@@ -162,7 +169,8 @@ async def get_results(finalData: str = Form(...), image: UploadFile = File(...))
         top_k=5,
         vector=hdense,
         sparse_vector=hsparse,
-        include_metadata=True
+        include_metadata=True,
+        namespace=NAMESPACE
     )
     if not result['matches']:
         raise HTTPException(status_code=404, detail="No matching results found")
