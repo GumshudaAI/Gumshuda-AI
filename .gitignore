@@ -15,7 +15,7 @@ venv/
 **/Scripts/
 # testing
 /coverage
-
+__pycache__/
 # production
 /build
 __pycache__
@@ -30,3 +30,4 @@ __pycache__
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+__pycache__
