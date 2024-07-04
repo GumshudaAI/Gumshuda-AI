@@ -16,7 +16,8 @@ venv/
 
 # production
 /build
-
+__pycache__/
+main.cpython-39.pyc/
 # misc
 .DS_Store
 .env.local
