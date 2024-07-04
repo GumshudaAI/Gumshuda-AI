@@ -9,15 +9,16 @@
 venv/
 **/.dockerignore
 /backend/venv/
-**/__pycache__/
+./backend/__pycache__
+.vscode/
+
 **/Scripts/
 # testing
 /coverage
 __pycache__/
 # production
 /build
-.vscode/
-assets/ 
+__pycache__
 # misc
 .DS_Store
 .env.local
