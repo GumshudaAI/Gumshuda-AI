@@ -30,15 +30,29 @@ There are two types of frontend available.
 
 ## Sample ENV File
 
-Pinecone is needed to store vector embeddedings
-ImgBB is used to upload images as a blog object, S3 can be configured to be used here as well
-OpenAI API key is used to create embeddedings via clip-v2 model. This can also be done locally by importing the model in the RAM.
+### For backend
 
+Create .env file in the backend directory with the following format-
+
+```
 PINECONE_API_KEY= <get this on https://www.pinecone.io>
 PINECONE_ENVIRONMENT=<get this on https://www.pinecone.io>
 IMG_DB_API_KEY=<get this one https://api.imgbb.com/>
 OPENAI_API_KEY=<open ai api key>
 INDEX_NAME=<name which you have provided to your database index>
+```
+
+Pinecone is needed to store vector embeddedings
+ImgBB is used to upload images as a blog object, S3 can be configured to be used here as well
+OpenAI API key is used to create embeddedings via clip-v2 model. This can also be done locally by importing the model in the RAM.
+
+### For Frontend:
+
+Add .env file in the frontend directeory with the value of
+
+```
+GENERATE_SOURCEMAP=false
+```
 
 ## Deployment:
 
