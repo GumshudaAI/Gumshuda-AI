@@ -13,9 +13,6 @@ import PowerTypography from "components/PowerTypography";
 
 // Images
 import team1 from "assets/images/team-1.jpg";
-import team2 from "assets/images/team-2.jpg";
-import team3 from "assets/images/team-3.jpg";
-import team4 from "assets/images/team-4.jpg";
 
 // Data
 const data = [
@@ -61,7 +58,7 @@ function TeamMembers() {
                   </Grid>
                   <Grid item ml="auto">
                     <PowerButton
-                      href="https://www.twitter.com/whynesspower2"
+                      href="https://www.twitter.com/whynesspower"
                       variant="outlined"
                       color="info"
                       size="small"

@@ -41,7 +41,7 @@ import {
 } from "context";
 
 // Images
-import team2 from "assets/images/team-2.jpg";
+import team2 from "assets/images/marie.jpg";
 import logoSpotify from "assets/images/small-logos/logo-spotify.svg";
 
 function DashboardNavbar({ absolute, light, isMini }) {
@@ -97,13 +97,13 @@ function DashboardNavbar({ absolute, light, isMini }) {
     >
       <NotificationItem
         image={<img src={team2} alt="person" />}
-        title={["New message", "from Laur"]}
+        title={["New message", "from Alisha"]}
         date="13 minutes ago"
         onClick={handleCloseMenu}
       />
       <NotificationItem
         image={<img src={logoSpotify} alt="person" />}
-        title={["New album", "by Travis Scott"]}
+        title={["New album", "by Eminem"]}
         date="1 day"
         onClick={handleCloseMenu}
       />
@@ -156,24 +156,6 @@ function DashboardNavbar({ absolute, light, isMini }) {
               />
             </PowerBox>
             <PowerBox color={light ? "white" : "inherit"}>
-              <Link to="/sign-in">
-                <IconButton sx={navbarIconButton} size="small">
-                  <Icon
-                    sx={({ palette: { dark, white } }) => ({
-                      color: light && transparentNavbar ? white.main : dark.main,
-                    })}
-                  >
-                    account_circle
-                  </Icon>
-                  <PowerTypography
-                    variant="button"
-                    fontWeight="medium"
-                    color={light && transparentNavbar ? "white" : "dark"}
-                  >
-                    Sign in
-                  </PowerTypography>
-                </IconButton>
-              </Link>
               <IconButton
                 size="small"
                 color={light && transparentNavbar ? "white" : "dark"}

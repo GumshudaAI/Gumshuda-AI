@@ -65,7 +65,7 @@ function Default() {
                   <PowerTypography variant="button" color="text" fontWeight="medium">
                     94% more{" "}
                     <PowerTypography variant="button" color="text" fontWeight="regular">
-                      in December 2023
+                      in July 2024
                     </PowerTypography>
                   </PowerTypography>
                 </PowerBox>
