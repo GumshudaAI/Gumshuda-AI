@@ -6,8 +6,8 @@ import Grid from "@mui/material/Grid";
 import Icon from "@mui/material/Icon";
 
 // Gumshuda AI MUI components
-import ArgonBox from "components/ArgonBox";
-import ArgonTypography from "components/ArgonTypography";
+import PowerBox from "components/PowerBox";
+import PowerTypography from "components/PowerTypography";
 
 // Gumshuda AI MUI example components
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
@@ -29,10 +29,10 @@ function Default() {
   return (
     <DashboardLayout>
       <DashboardNavbar />
-      {/* <ArgonBox py={3}>
+      {/* <PowerBox py={3}>
         <img width="600" height="400" src={ComImage}></img>
-      </ArgonBox> */}
-      <ArgonBox py={3}>
+      </PowerBox> */}
+      <PowerBox py={3}>
         <Grid container item mb={5} xs={12} lg={9} spacing={3}>
           <Grid container item xs={12} spacing={3}>
             <Grid item xs={12} md={7}>
@@ -58,17 +58,17 @@ function Default() {
             <GradientLineChart
               title="Last 24 Hours Activity Overview"
               description={
-                <ArgonBox display="flex" alignItems="center">
-                  <ArgonBox fontSize={size.lg} color="success" mb={0.3} mr={0.5} lineHeight={0}>
+                <PowerBox display="flex" alignItems="center">
+                  <PowerBox fontSize={size.lg} color="success" mb={0.3} mr={0.5} lineHeight={0}>
                     <Icon sx={{ fontWeight: "bold" }}>arrow_upward</Icon>
-                  </ArgonBox>
-                  <ArgonTypography variant="button" color="text" fontWeight="medium">
+                  </PowerBox>
+                  <PowerTypography variant="button" color="text" fontWeight="medium">
                     94% more{" "}
-                    <ArgonTypography variant="button" color="text" fontWeight="regular">
+                    <PowerTypography variant="button" color="text" fontWeight="regular">
                       in December 2023
-                    </ArgonTypography>
-                  </ArgonTypography>
-                </ArgonBox>
+                    </PowerTypography>
+                  </PowerTypography>
+                </PowerBox>
               }
               chart={gradientLineChartData}
             />
@@ -89,7 +89,7 @@ function Default() {
             </Grid>
           </Grid>
         </Grid>
-      </ArgonBox>
+      </PowerBox>
       <Footer />
     </DashboardLayout>
   );

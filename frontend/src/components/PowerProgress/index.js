@@ -1,24 +1,22 @@
- 
-
 import { forwardRef } from "react";
 
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
 
 // Gumshuda AI MUI components
-import ArgonTypography from "components/ArgonTypography";
+import PowerTypography from "components/PowerTypography";
 
-// Custom styles for ArgonProgress
-import ArgonProgressRoot from "components/ArgonProgress/ArgonProgressRoot";
+// Custom styles for PowerProgress
+import PowerProgressRoot from "components/PowerProgress/PowerProgressRoot";
 
-const ArgonProgress = forwardRef(({ variant, color, value, label, ...rest }, ref) => (
+const PowerProgress = forwardRef(({ variant, color, value, label, ...rest }, ref) => (
   <>
     {label && (
-      <ArgonTypography variant="button" fontWeight="medium" color="text">
+      <PowerTypography variant="button" fontWeight="medium" color="text">
         {value}%
-      </ArgonTypography>
+      </PowerTypography>
     )}
-    <ArgonProgressRoot
+    <PowerProgressRoot
       {...rest}
       ref={ref}
       variant="determinate"
@@ -28,16 +26,16 @@ const ArgonProgress = forwardRef(({ variant, color, value, label, ...rest }, ref
   </>
 ));
 
-// Setting default values for the props of ArgonProgress
-ArgonProgress.defaultProps = {
+// Setting default values for the props of PowerProgress
+PowerProgress.defaultProps = {
   variant: "contained",
   color: "info",
   value: 0,
   label: false,
 };
 
-// Typechecking props for the ArgonProgress
-ArgonProgress.propTypes = {
+// Typechecking props for the PowerProgress
+PowerProgress.propTypes = {
   variant: PropTypes.oneOf(["contained", "gradient"]),
   color: PropTypes.oneOf([
     "primary",
@@ -53,4 +51,4 @@ ArgonProgress.propTypes = {
   label: PropTypes.bool,
 };
 
-export default ArgonProgress;
+export default PowerProgress;

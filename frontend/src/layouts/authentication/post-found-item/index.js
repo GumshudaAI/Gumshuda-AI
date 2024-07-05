@@ -4,17 +4,17 @@ import axios from "axios";
 import Card from "@mui/material/Card";
 
 // Gumshuda AI MUI components
-import ArgonBox from "components/ArgonBox";
-import ArgonTypography from "components/ArgonTypography";
-import ArgonInput from "components/ArgonInput";
-import ArgonButton from "components/ArgonButton";
+import PowerBox from "components/PowerBox";
+import PowerTypography from "components/PowerTypography";
+import PowerInput from "components/PowerInput";
+import PowerButton from "components/PowerButton";
 
 import CircularProgress from "@mui/material/CircularProgress";
 // Authentication layout components
 import BasicLayout from "layouts/authentication/components/BasicLayout";
 
 const bgImage =
-  "https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-basic.jpg";
+  "https://raw.githubuserconasic.jpg";
 
 function Post() {
   const [postSuccess, setPostSuccess] = useState(false);
@@ -45,15 +45,11 @@ function Post() {
     formData.append("image", file);
     console.log("FormData:", formData);
     try {
-      const response = await axios.post(
-        "http://localhost:8000/post_request/",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const response = await axios.post("http://localhost:8000/post_request/", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
       setPostSuccess(true);
       setLoader(false);
       console.log("Response:", response.data);
@@ -69,13 +65,13 @@ function Post() {
       {!postSuccess && !loader && (
         <BasicLayout image={bgImage}>
           <Card m={5}>
-            <ArgonBox p={3} textAlign="center">
-              <ArgonTypography variant="h5" fontWeight="medium" sx={{ my: 1 }}>
+            <PowerBox p={3} textAlign="center">
+              <PowerTypography variant="h5" fontWeight="medium" sx={{ my: 1 }}>
                 Report the item you found
-              </ArgonTypography>
-            </ArgonBox>
-            <ArgonBox px={3} pb={3} textAlign="center">
-              <ArgonTypography
+              </PowerTypography>
+            </PowerBox>
+            <PowerBox px={3} pb={3} textAlign="center">
+              <PowerTypography
                 display="block"
                 variant="button"
                 color="dark"
@@ -83,11 +79,11 @@ function Post() {
                 sx={{ mb: 3 }}
               >
                 Report the item you found by mistake, there is always the owner searching for it!
-              </ArgonTypography>
+              </PowerTypography>
 
-              <ArgonBox component="form" role="form">
-                <ArgonBox mb={1} textAlign="left">
-                  <ArgonTypography
+              <PowerBox component="form" role="form">
+                <PowerBox mb={1} textAlign="left">
+                  <PowerTypography
                     display="inline"
                     variant="h6"
                     color="dark"
@@ -96,37 +92,37 @@ function Post() {
                     // sx={{ mb: 2 }}
                   >
                     Name of the item:
-                  </ArgonTypography>
-                  <ArgonInput
+                  </PowerTypography>
+                  <PowerInput
                     onChange={(e) => setName(e.target.value)}
                     type="text"
                     placeholder="Name"
                   />
-                </ArgonBox>
+                </PowerBox>
 
-                <ArgonBox mb={1} textAlign="left">
-                  <ArgonTypography display="inline" variant="h6" color="dark" fontWeight="regular">
+                <PowerBox mb={1} textAlign="left">
+                  <PowerTypography display="inline" variant="h6" color="dark" fontWeight="regular">
                     Description:
-                  </ArgonTypography>
-                  <ArgonInput
+                  </PowerTypography>
+                  <PowerInput
                     onChange={(e) => setDescription(e.target.value)}
                     type="text"
                     placeholder="Description"
                   />
-                </ArgonBox>
+                </PowerBox>
 
-                <ArgonBox mb={1} textAlign="left">
-                  <ArgonTypography display="inline" variant="h6" color="dark" fontWeight="regular">
+                <PowerBox mb={1} textAlign="left">
+                  <PowerTypography display="inline" variant="h6" color="dark" fontWeight="regular">
                     City where you lost:
-                  </ArgonTypography>
-                  <ArgonInput
+                  </PowerTypography>
+                  <PowerInput
                     onChange={(e) => setCity(e.target.value)}
                     type="text"
                     placeholder="City"
                   />
-                </ArgonBox>
-                <ArgonBox mb={1} textAlign="left">
-                  <ArgonTypography
+                </PowerBox>
+                <PowerBox mb={1} textAlign="left">
+                  <PowerTypography
                     display="inline"
                     variant="h6"
                     color="dark"
@@ -135,16 +131,16 @@ function Post() {
                     // sx={{ mb: 2 }}
                   >
                     When did you lose it?
-                  </ArgonTypography>
-                  <ArgonInput
+                  </PowerTypography>
+                  <PowerInput
                     onChange={(e) => setDate(e.target.value)}
                     type="date"
                     placeholder="When did you lose it"
                   />
-                </ArgonBox>
+                </PowerBox>
 
-                <ArgonBox mb={1} textAlign="left">
-                  <ArgonTypography
+                <PowerBox mb={1} textAlign="left">
+                  <PowerTypography
                     display="inline"
                     variant="h6"
                     color="dark"
@@ -153,36 +149,36 @@ function Post() {
                     // sx={{ mb: 2 }}
                   >
                     Upload image
-                  </ArgonTypography>
-                  <ArgonInput
+                  </PowerTypography>
+                  <PowerInput
                     type="file"
                     onChange={handleFileChange}
                     placeholder="Upload reference image"
                   />
-                </ArgonBox>
+                </PowerBox>
 
-                <ArgonBox mt={4} mb={1}>
-                  <ArgonButton type="submit" onClick={handleSubmit} color="info" fullWidth>
+                <PowerBox mt={4} mb={1}>
+                  <PowerButton type="submit" onClick={handleSubmit} color="info" fullWidth>
                     Submit
-                  </ArgonButton>
-                </ArgonBox>
-              </ArgonBox>
-            </ArgonBox>
+                  </PowerButton>
+                </PowerBox>
+              </PowerBox>
+            </PowerBox>
           </Card>
         </BasicLayout>
       )}
       {loader && (
         <BasicLayout image={bgImage}>
-          <ArgonBox color="white">
+          <PowerBox color="white">
             <CircularProgress />
-          </ArgonBox>
+          </PowerBox>
         </BasicLayout>
       )}
 
       {postSuccess && !loader && (
         <BasicLayout vAlign={"center"} align={"center"} image={bgImage}>
           <Card m={5} p={3}>
-            <ArgonBox
+            <PowerBox
               style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", overflow: "auto" }}
               xs={12}
               sm={12}
@@ -192,9 +188,9 @@ function Post() {
               color="success"
               p={3}
             >
-              <ArgonTypography display="inline" variant="h6" color="dark" fontWeight="regular">
+              <PowerTypography display="inline" variant="h6" color="dark" fontWeight="regular">
                 Successfullp posted item! Thanks for you contribution &nbsp;
-                <ArgonBox
+                <PowerBox
                   component="i"
                   color="primary"
                   fontSize="14px"
@@ -202,8 +198,8 @@ function Post() {
                 />
                 <br />
                 The Item is now available on Search Page
-              </ArgonTypography>
-            </ArgonBox>
+              </PowerTypography>
+            </PowerBox>
           </Card>
         </BasicLayout>
       )}

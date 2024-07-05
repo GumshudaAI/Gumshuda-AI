@@ -1,4 +1,4 @@
-import ArgonBox from "components/ArgonBox";
+import PowerBox from "components/PowerBox";
 
 const bgImageAuth =
   "https://images.unsplash.com/photo-1635944095210-23114a1fb7c0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1335&amp;q=80";
@@ -11,7 +11,7 @@ const pageRoutes = [
     collapse: [
       {
         name: "dashboards",
-        icon: <ArgonBox component="i" color="info" className="ni ni-spaceship" />,
+        icon: <PowerBox component="i" color="info" className="ni ni-spaceship" />,
         collapse: [
           {
             name: "default",
@@ -24,7 +24,7 @@ const pageRoutes = [
   {
     name: "authenticaton",
     image: (
-      <ArgonBox
+      <PowerBox
         width="100%"
         height="100%"
         display="flex"
@@ -40,7 +40,7 @@ const pageRoutes = [
           backgroundPosition: "50%",
         })}
       >
-        <ArgonBox
+        <PowerBox
           display="flex"
           alignItems="center"
           justifyContent="center"
@@ -54,8 +54,8 @@ const pageRoutes = [
             <br />
             Authentication pages
           </span>
-        </ArgonBox>
-      </ArgonBox>
+        </PowerBox>
+      </PowerBox>
     ),
   },
   {
@@ -65,7 +65,7 @@ const pageRoutes = [
         name: "kanban",
         route: "/applications/kanban",
         icon: (
-          <ArgonBox
+          <PowerBox
             component="i"
             color="info"
             className="ni ni-single-copy-04"
@@ -78,19 +78,19 @@ const pageRoutes = [
         name: "wizard",
         route: "/applications/wizard",
         icon: (
-          <ArgonBox component="i" color="info" className="ni ni-laptop" mt={0.125} py={0.625} />
+          <PowerBox component="i" color="info" className="ni ni-laptop" mt={0.125} py={0.625} />
         ),
       },
       {
         name: "data tables",
         route: "/applications/data-tables",
-        icon: <ArgonBox component="i" color="info" className="ni ni-badge" mt={0.125} py={0.625} />,
+        icon: <PowerBox component="i" color="info" className="ni ni-badge" mt={0.125} py={0.625} />,
       },
       {
         name: "calendar",
         route: "/applications/calendar",
         icon: (
-          <ArgonBox
+          <PowerBox
             component="i"
             color="info"
             className="ni ni-notification-70"

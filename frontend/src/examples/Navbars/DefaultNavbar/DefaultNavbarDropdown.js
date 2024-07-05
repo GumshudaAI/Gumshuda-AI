@@ -24,8 +24,8 @@ import Collapse from "@mui/material/Collapse";
 import Icon from "@mui/material/Icon";
 
 // Gumshuda AI MUI components
-import ArgonBox from "components/ArgonBox";
-import ArgonTypography from "components/ArgonTypography";
+import PowerBox from "components/PowerBox";
+import PowerTypography from "components/PowerTypography";
 
 function DefaultNavbarDropdown({
   name,
@@ -52,7 +52,7 @@ function DefaultNavbarDropdown({
 
   return (
     <>
-      <ArgonBox
+      <PowerBox
         {...rest}
         mx={0.5}
         p={1}
@@ -64,16 +64,16 @@ function DefaultNavbarDropdown({
         {...(href && linkComponent)}
       >
         {icon && (
-          <ArgonTypography
+          <PowerTypography
             variant="body2"
             lineHeight={1}
             color="inherit"
             sx={{ alignSelf: "center", "& *": { verticalAlign: "middle" } }}
           >
             {icon}
-          </ArgonTypography>
+          </PowerTypography>
         )}
-        <ArgonTypography
+        <PowerTypography
           variant="button"
           fontWeight="regular"
           textTransform="capitalize"
@@ -81,13 +81,13 @@ function DefaultNavbarDropdown({
           sx={{ fontWeight: "100%", ml: 1, mr: 0.25 }}
         >
           {name}
-        </ArgonTypography>
-        <ArgonTypography variant="body2" color={light ? "white" : "dark"} ml="auto">
+        </PowerTypography>
+        <PowerTypography variant="body2" color={light ? "white" : "dark"} ml="auto">
           <Icon sx={{ fontWeight: "normal", verticalAlign: "middle" }}>
             {collapse && "keyboard_arrow_down"}
           </Icon>
-        </ArgonTypography>
-      </ArgonBox>
+        </PowerTypography>
+      </PowerBox>
       {children && (
         <Collapse in={Boolean(collapseStatus)} timeout={400} unmountOnExit>
           {children}

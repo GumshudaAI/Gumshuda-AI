@@ -1,5 +1,4 @@
 /* eslint-disable no-param-reassign */
- 
 
 import { useState, useEffect, Fragment } from "react";
 
@@ -19,9 +18,9 @@ import MuiLink from "@mui/material/Link";
 import Container from "@mui/material/Container";
 
 // Gumshuda AI MUI components
-import ArgonBox from "components/ArgonBox";
-import ArgonTypography from "components/ArgonTypography";
-import ArgonButton from "components/ArgonButton";
+import PowerBox from "components/PowerBox";
+import PowerTypography from "components/PowerTypography";
+import PowerButton from "components/PowerButton";
 
 // Gumshuda AI MUI examples components
 import DefaultNavbarDropdown from "examples/Navbars/DefaultNavbar/DefaultNavbarDropdown";
@@ -31,10 +30,10 @@ import DefaultNavbarMobile from "examples/Navbars/DefaultNavbar/DefaultNavbarMob
 import breakpoints from "assets/theme/base/breakpoints";
 
 // Material Dashboard 2 PRO React context
-import { useArgonController } from "context";
+import { usePowerController } from "context";
 
 function DefaultNavbar({ routes, brand, transparent, light, action }) {
-  const [controller] = useArgonController();
+  const [controller] = usePowerController();
   const { darkMode } = controller;
 
   const [dropdown, setDropdown] = useState("");
@@ -122,14 +121,14 @@ function DefaultNavbar({ routes, brand, transparent, light, action }) {
               <Grid key={gridKey} item xs={12 / columns} sx={{ position: "relative" }}>
                 {cols.map((col, index) => (
                   <Fragment key={col.name}>
-                    <ArgonBox
+                    <PowerBox
                       width="100%"
                       display="flex"
                       alignItems="center"
                       py={1}
                       mt={index !== 0 ? 2 : 0}
                     >
-                      <ArgonBox
+                      <PowerBox
                         display="flex"
                         justifyContent="center"
                         alignItems="center"
@@ -142,18 +141,18 @@ function DefaultNavbar({ routes, brand, transparent, light, action }) {
                         lineHeight={1}
                       >
                         {col.icon}
-                      </ArgonBox>
-                      <ArgonTypography
+                      </PowerBox>
+                      <PowerTypography
                         display="block"
                         variant="button"
                         fontWeight="bold"
                         textTransform="capitalize"
                       >
                         {col.name}
-                      </ArgonTypography>
-                    </ArgonBox>
+                      </PowerTypography>
+                    </PowerBox>
                     {col.collapse.map((item) => (
-                      <ArgonTypography
+                      <PowerTypography
                         key={item.name}
                         component={item.route ? Link : MuiLink}
                         to={item.route ? item.route : ""}
@@ -185,7 +184,7 @@ function DefaultNavbar({ routes, brand, transparent, light, action }) {
                         })}
                       >
                         {item.name}
-                      </ArgonTypography>
+                      </PowerTypography>
                     ))}
                   </Fragment>
                 ))}
@@ -232,7 +231,7 @@ function DefaultNavbar({ routes, brand, transparent, light, action }) {
               };
 
               return (
-                <ArgonTypography
+                <PowerTypography
                   key={item.name}
                   {...(item.route ? routeComponent : linkComponent)}
                   display="flex"
@@ -269,32 +268,32 @@ function DefaultNavbar({ routes, brand, transparent, light, action }) {
                   }}
                 >
                   {item.description ? (
-                    <ArgonBox display="flex" py={0.25} fontSize="0.875rem" color="text">
+                    <PowerBox display="flex" py={0.25} fontSize="0.875rem" color="text">
                       {typeof item.icon === "string" ? (
                         <Icon color="inherit" sx={{ mr: 1.25, mt: 0.125 }}>
                           {item.icon}
                         </Icon>
                       ) : (
-                        <ArgonBox color="inherit" mr={1.25} mt={0.125}>
+                        <PowerBox color="inherit" mr={1.25} mt={0.125}>
                           {item.icon}
-                        </ArgonBox>
+                        </PowerBox>
                       )}
-                      <ArgonBox pl={1} lineHeight={0}>
-                        <ArgonTypography
+                      <PowerBox pl={1} lineHeight={0}>
+                        <PowerTypography
                           variant="button"
                           display="block"
                           fontWeight="bold"
                           textTransform="capitalize"
                         >
                           {item.name}
-                        </ArgonTypography>
-                        <ArgonTypography variant="button" fontWeight="regular" color="text">
+                        </PowerTypography>
+                        <PowerTypography variant="button" fontWeight="regular" color="text">
                           {item.description}
-                        </ArgonTypography>
-                      </ArgonBox>
-                    </ArgonBox>
+                        </PowerTypography>
+                      </PowerBox>
+                    </PowerBox>
                   ) : item.icon ? (
-                    <ArgonBox
+                    <PowerBox
                       display="flex"
                       alignItems="center"
                       color={darkMode ? "white" : "dark"}
@@ -302,12 +301,12 @@ function DefaultNavbar({ routes, brand, transparent, light, action }) {
                       {typeof item.icon === "string" ? (
                         <Icon color="inherit">{item.icon}</Icon>
                       ) : (
-                        <ArgonBox mr={1.5} lineHeight={1}>
+                        <PowerBox mr={1.5} lineHeight={1}>
                           {item.icon}
-                        </ArgonBox>
+                        </PowerBox>
                       )}
                       <span>{item.name}</span>
-                    </ArgonBox>
+                    </PowerBox>
                   ) : (
                     item.name
                   )}
@@ -316,7 +315,7 @@ function DefaultNavbar({ routes, brand, transparent, light, action }) {
                       keyboard_arrow_right
                     </Icon>
                   )}
-                </ArgonTypography>
+                </PowerTypography>
               );
             })}
           </Grid>
@@ -362,8 +361,8 @@ function DefaultNavbar({ routes, brand, transparent, light, action }) {
               darkMode ? background.dark : white.main,
           }}
         >
-          <ArgonBox borderRadius="lg">
-            <ArgonTypography
+          <PowerBox borderRadius="lg">
+            <PowerTypography
               variant="h1"
               sx={({ palette: { white, background } }) => ({
                 color: darkMode ? background.dark : white.main,
@@ -372,11 +371,11 @@ function DefaultNavbar({ routes, brand, transparent, light, action }) {
               <Icon ref={setArrowRef} sx={{ mt: -3 }}>
                 arrow_drop_up
               </Icon>
-            </ArgonTypography>
-            <ArgonBox shadow="lg" borderRadius="lg" p={1.625} mt={1}>
+            </PowerTypography>
+            <PowerBox shadow="lg" borderRadius="lg" p={1.625} mt={1}>
               {renderRoutes}
-            </ArgonBox>
-          </ArgonBox>
+            </PowerBox>
+          </PowerBox>
         </Grow>
       )}
     </Popper>
@@ -405,7 +404,7 @@ function DefaultNavbar({ routes, brand, transparent, light, action }) {
                 };
 
                 return (
-                  <ArgonTypography
+                  <PowerTypography
                     key={item.name}
                     {...(item.route ? routeComponent : linkComponent)}
                     display="flex"
@@ -434,9 +433,9 @@ function DefaultNavbar({ routes, brand, transparent, light, action }) {
                     })}
                   >
                     {item.description ? (
-                      <ArgonBox>
+                      <PowerBox>
                         {item.name}
-                        <ArgonTypography
+                        <PowerTypography
                           display="block"
                           variant="button"
                           color="text"
@@ -444,8 +443,8 @@ function DefaultNavbar({ routes, brand, transparent, light, action }) {
                           sx={{ transition: "all 300ms linear" }}
                         >
                           {item.description}
-                        </ArgonTypography>
-                      </ArgonBox>
+                        </PowerTypography>
+                      </PowerBox>
                     ) : (
                       item.name
                     )}
@@ -457,7 +456,7 @@ function DefaultNavbar({ routes, brand, transparent, light, action }) {
                         keyboard_arrow_right
                       </Icon>
                     )}
-                  </ArgonTypography>
+                  </PowerTypography>
                 );
               });
           }
@@ -494,11 +493,11 @@ function DefaultNavbar({ routes, brand, transparent, light, action }) {
               darkMode ? background.dark : white.main,
           }}
         >
-          <ArgonBox ml={2.5} mt={-2.5} borderRadius="lg">
-            <ArgonBox shadow="lg" borderRadius="lg" py={1.5} px={1} mt={2}>
+          <PowerBox ml={2.5} mt={-2.5} borderRadius="lg">
+            <PowerBox shadow="lg" borderRadius="lg" py={1.5} px={1} mt={2}>
               {renderNestedRoutes}
-            </ArgonBox>
-          </ArgonBox>
+            </PowerBox>
+          </PowerBox>
         </Grow>
       )}
     </Popper>
@@ -506,7 +505,7 @@ function DefaultNavbar({ routes, brand, transparent, light, action }) {
 
   return (
     <Container>
-      <ArgonBox
+      <PowerBox
         pt={0.75}
         pb={1}
         px={{ xs: 4, sm: transparent ? 2 : 3, lg: transparent ? 0 : 2 }}
@@ -529,25 +528,25 @@ function DefaultNavbar({ routes, brand, transparent, light, action }) {
           backdropFilter: transparent ? "none" : `saturate(200%) blur(30px)`,
         })}
       >
-        <ArgonBox display="flex" justifyContent="space-between" alignItems="center">
-          <ArgonBox
+        <PowerBox display="flex" justifyContent="space-between" alignItems="center">
+          <PowerBox
             component={Link}
             to="/"
             py={transparent ? 1.5 : 0.75}
             lineHeight={1}
             pl={{ xs: 0, lg: 1 }}
           >
-            <ArgonTypography variant="button" fontWeight="bold" color={light ? "white" : "dark"}>
+            <PowerTypography variant="button" fontWeight="bold" color={light ? "white" : "dark"}>
               {brand}
-            </ArgonTypography>
-          </ArgonBox>
-          <ArgonBox color="inherit" display={{ xs: "none", lg: "flex" }} m={0} p={0}>
+            </PowerTypography>
+          </PowerBox>
+          <PowerBox color="inherit" display={{ xs: "none", lg: "flex" }} m={0} p={0}>
             {renderNavbarItems}
-          </ArgonBox>
+          </PowerBox>
           {action &&
             (action.type === "internal" ? (
-              <ArgonBox display={{ xs: "none", lg: "inline-block" }}>
-                <ArgonButton
+              <PowerBox display={{ xs: "none", lg: "inline-block" }}>
+                <PowerButton
                   component={Link}
                   to={action.route}
                   variant={action.variant ? action.variant : "contained"}
@@ -555,11 +554,11 @@ function DefaultNavbar({ routes, brand, transparent, light, action }) {
                   size="small"
                 >
                   {action.label}
-                </ArgonButton>
-              </ArgonBox>
+                </PowerButton>
+              </PowerBox>
             ) : (
-              <ArgonBox display={{ xs: "none", lg: "inline-block" }}>
-                <ArgonButton
+              <PowerBox display={{ xs: "none", lg: "inline-block" }}>
+                <PowerButton
                   component="a"
                   href={action.route}
                   target="_blank"
@@ -570,10 +569,10 @@ function DefaultNavbar({ routes, brand, transparent, light, action }) {
                   sx={{ mt: -0.3 }}
                 >
                   {action.label}
-                </ArgonButton>
-              </ArgonBox>
+                </PowerButton>
+              </PowerBox>
             ))}
-          <ArgonBox
+          <PowerBox
             display={{ xs: "inline-block", lg: "none" }}
             lineHeight={0}
             py={1.5}
@@ -583,9 +582,9 @@ function DefaultNavbar({ routes, brand, transparent, light, action }) {
             onClick={openMobileNavbar}
           >
             <Icon fontSize="default">{mobileNavbar ? "close" : "menu"}</Icon>
-          </ArgonBox>
-        </ArgonBox>
-        <ArgonBox
+          </PowerBox>
+        </PowerBox>
+        <PowerBox
           shadow={transparent ? "lg" : "none"}
           borderRadius="md"
           px={transparent ? 2 : 0}
@@ -606,8 +605,8 @@ function DefaultNavbar({ routes, brand, transparent, light, action }) {
           }}
         >
           {mobileView && <DefaultNavbarMobile routes={routes} open={mobileNavbar} />}
-        </ArgonBox>
-      </ArgonBox>
+        </PowerBox>
+      </PowerBox>
       {dropdownMenu}
       {nestedDropdownMenu}
     </Container>

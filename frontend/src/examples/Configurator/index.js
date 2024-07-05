@@ -14,16 +14,16 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedinIcon from "@mui/icons-material/Facebook";
 
 // Gumshuda AI MUI components
-import ArgonBox from "components/ArgonBox";
-import ArgonTypography from "components/ArgonTypography";
-import ArgonButton from "components/ArgonButton";
+import PowerBox from "components/PowerBox";
+import PowerTypography from "components/PowerTypography";
+import PowerButton from "components/PowerButton";
 
 // Custom styles for the Configurator
 import ConfiguratorRoot from "examples/Configurator/ConfiguratorRoot";
 
 // Gumshuda AI MUI context
 import {
-  useArgonController,
+  usePowerController,
   setOpenConfigurator,
   setDarkSidenav,
   setMiniSidenav,
@@ -33,7 +33,7 @@ import {
 } from "context";
 
 function Configurator() {
-  const [controller, dispatch] = useArgonController();
+  const [controller, dispatch] = usePowerController();
   const { openConfigurator, darkSidenav, miniSidenav, fixedNavbar, sidenavColor, darkMode } =
     controller;
   const sidenavColors = ["primary", "dark", "info", "success", "warning", "error"];
@@ -50,7 +50,7 @@ function Configurator() {
 
   return (
     <ConfiguratorRoot variant="permanent" ownerState={{ openConfigurator }}>
-      <ArgonBox
+      <PowerBox
         display="flex"
         justifyContent="space-between"
         alignItems="baseline"
@@ -58,12 +58,12 @@ function Configurator() {
         pb={0.8}
         px={3}
       >
-        <ArgonBox>
-          <ArgonTypography variant="h5">Gumshuda AI Settings</ArgonTypography>
-          <ArgonTypography variant="body2" color="text">
+        <PowerBox>
+          <PowerTypography variant="h5">Gumshuda AI Settings</PowerTypography>
+          <PowerTypography variant="body2" color="text">
             The Ultimate Lost and Found App
-          </ArgonTypography>
-        </ArgonBox>
+          </PowerTypography>
+        </PowerBox>
 
         <Icon
           sx={({ typography: { size, fontWeightBold }, palette: { dark, white } }) => ({
@@ -79,32 +79,32 @@ function Configurator() {
         >
           close
         </Icon>
-      </ArgonBox>
+      </PowerBox>
 
       <Divider />
 
-      <ArgonBox pt={1.25} pb={3} px={3}>
-        <ArgonBox mt={3} lineHeight={1}>
-          <ArgonTypography variant="h6">Sidenav Type</ArgonTypography>
-          <ArgonTypography variant="button" color="text" fontWeight="regular">
+      <PowerBox pt={1.25} pb={3} px={3}>
+        <PowerBox mt={3} lineHeight={1}>
+          <PowerTypography variant="h6">Sidenav Type</PowerTypography>
+          <PowerTypography variant="button" color="text" fontWeight="regular">
             Choose between 2 different sidenav types.
-          </ArgonTypography>
+          </PowerTypography>
 
-          <ArgonBox
+          <PowerBox
             sx={{
               display: "flex",
               mt: 2,
             }}
           >
-            <ArgonButton
+            <PowerButton
               color="info"
               variant={darkSidenav ? "outlined" : "gradient"}
               onClick={handleWhiteSidenav}
               fullWidth
             >
               White
-            </ArgonButton>
-            <ArgonButton
+            </PowerButton>
+            <PowerButton
               color="info"
               variant={darkSidenav ? "gradient" : "outlined"}
               onClick={handledarkSidenav}
@@ -114,39 +114,39 @@ function Configurator() {
               }}
             >
               Dark
-            </ArgonButton>
-          </ArgonBox>
-        </ArgonBox>
-        <ArgonBox display="flex" justifyContent="space-between" mt={3} lineHeight={1}>
-          <ArgonTypography variant="h6">Navbar Fixed</ArgonTypography>
+            </PowerButton>
+          </PowerBox>
+        </PowerBox>
+        <PowerBox display="flex" justifyContent="space-between" mt={3} lineHeight={1}>
+          <PowerTypography variant="h6">Navbar Fixed</PowerTypography>
 
           <Switch checked={fixedNavbar} onChange={handleFixedNavbar} />
-        </ArgonBox>
+        </PowerBox>
 
         <Divider />
 
-        <ArgonBox display="flex" justifyContent="space-between" lineHeight={1}>
-          <ArgonTypography variant="h6">Sidenav Mini</ArgonTypography>
+        <PowerBox display="flex" justifyContent="space-between" lineHeight={1}>
+          <PowerTypography variant="h6">Sidenav Mini</PowerTypography>
 
           <Switch checked={miniSidenav} onChange={handleMiniSidenav} />
-        </ArgonBox>
+        </PowerBox>
 
         <Divider />
 
-        <ArgonBox display="flex" justifyContent="space-between" lineHeight={1}>
-          <ArgonTypography variant="h6">Light / Dark</ArgonTypography>
+        <PowerBox display="flex" justifyContent="space-between" lineHeight={1}>
+          <PowerTypography variant="h6">Light / Dark</PowerTypography>
 
           <Switch checked={darkMode} onChange={handleDarkMode} />
-        </ArgonBox>
+        </PowerBox>
 
-        <ArgonBox mt={3} textAlign="center">
-          <ArgonBox mb={0.5}>
-            <ArgonTypography variant="h6">Thank you for sharing!</ArgonTypography>
-          </ArgonBox>
+        <PowerBox mt={3} textAlign="center">
+          <PowerBox mb={0.5}>
+            <PowerTypography variant="h6">Thank you for sharing!</PowerTypography>
+          </PowerBox>
 
-          <ArgonBox display="flex" justifyContent="center">
-            <ArgonBox mr={1.5}>
-              <ArgonButton
+          <PowerBox display="flex" justifyContent="center">
+            <PowerBox mr={1.5}>
+              <PowerButton
                 component={Link}
                 href="//twitter.com/whynesspower2"
                 target="_blank"
@@ -155,9 +155,9 @@ function Configurator() {
               >
                 <TwitterIcon />
                 &nbsp; Tweet
-              </ArgonButton>
-            </ArgonBox>
-            <ArgonButton
+              </PowerButton>
+            </PowerBox>
+            <PowerButton
               component={Link}
               href="https://www.linkedin.com/in/whynesspower/"
               target="_blank"
@@ -166,10 +166,10 @@ function Configurator() {
             >
               <FacebookIcon />
               &nbsp; Share
-            </ArgonButton>
-          </ArgonBox>
-        </ArgonBox>
-      </ArgonBox>
+            </PowerButton>
+          </PowerBox>
+        </PowerBox>
+      </PowerBox>
     </ConfiguratorRoot>
   );
 }

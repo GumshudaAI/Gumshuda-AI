@@ -1,13 +1,11 @@
- 
-
 // Gumshuda AI MUI components
-import ArgonButton from "components/ArgonButton";
-import ArgonBox from "components/ArgonBox";
+import PowerButton from "components/PowerButton";
+import PowerBox from "components/PowerBox";
 
 function Socials() {
   return (
-    <ArgonBox display="flex" justifyContent="center">
-      <ArgonButton variant="outlined" color="light">
+    <PowerBox display="flex" justifyContent="center">
+      <PowerButton variant="outlined" color="light">
         <svg width="24px" height="32px" viewBox="0 0 64 64" version="1.1">
           <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
             <g transform="translate(3.000000, 3.000000)" fillRule="nonzero">
@@ -19,9 +17,9 @@ function Socials() {
             </g>
           </g>
         </svg>
-      </ArgonButton>
-      <ArgonBox px={1}>
-        <ArgonButton variant="outlined" color="light">
+      </PowerButton>
+      <PowerBox px={1}>
+        <PowerButton variant="outlined" color="light">
           <svg width="24px" height="32px" viewBox="0 0 64 64" version="1.1">
             <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
               <g transform="translate(7.000000, 0.564551)" fill="#000000" fillRule="nonzero">
@@ -29,9 +27,9 @@ function Socials() {
               </g>
             </g>
           </svg>
-        </ArgonButton>
-      </ArgonBox>
-      <ArgonButton variant="outlined" color="light">
+        </PowerButton>
+      </PowerBox>
+      <PowerButton variant="outlined" color="light">
         <svg width="24px" height="32px" viewBox="0 0 64 64" version="1.1">
           <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
             <g transform="translate(3.000000, 2.000000)" fillRule="nonzero">
@@ -54,8 +52,8 @@ function Socials() {
             </g>
           </g>
         </svg>
-      </ArgonButton>
-    </ArgonBox>
+      </PowerButton>
+    </PowerBox>
   );
 }
 

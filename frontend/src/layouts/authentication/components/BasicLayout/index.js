@@ -5,8 +5,8 @@ import PropTypes from "prop-types";
 import Grid from "@mui/material/Grid";
 
 // Gumshuda AI MUI components
-import ArgonBox from "components/ArgonBox";
-import ArgonTypography from "components/ArgonTypography";
+import PowerBox from "components/PowerBox";
+import PowerTypography from "components/PowerTypography";
 
 // Gumshuda AI MUI example components
 import DefaultNavbar from "examples/Navbars/DefaultNavbar";
@@ -21,16 +21,8 @@ import pageRoutes from "page.routes";
 function BasicLayout({ vAlign, button, image, children, align }) {
   return (
     <PageLayout>
-      {/* <DefaultNavbar
-        routes={pageRoutes}
-        action={{
-          type: "external",
-          route: "https://creative-tim.com/product/argon-dashboard-pro-mui",
-          label: "Buy Now",
-          ...button,
-        }}
-      /> */}
-      <ArgonBox
+      
+      <PowerBox
         display="grid"
         alignItems={vAlign}
         width="100%"
@@ -48,12 +40,12 @@ function BasicLayout({ vAlign, button, image, children, align }) {
           backgroundRepeat: "no-repeat",
         }}
       >
-        <ArgonBox px={1} width="100%" mx="auto">
+        <PowerBox px={1} width="100%" mx="auto">
           <Grid container justifyContent={align}>
             <Grid item>{children}</Grid>
-            </Grid>
-        </ArgonBox>
-      </ArgonBox>
+          </Grid>
+        </PowerBox>
+      </PowerBox>
       {/* <Footer /> */}
     </PageLayout>
   );

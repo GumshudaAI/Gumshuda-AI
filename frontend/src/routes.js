@@ -2,14 +2,14 @@ import Default from "layouts/dashboards/default";
 import Post from "layouts/authentication/post-found-item";
 import Search from "layouts/authentication/search";
 
-import ArgonBox from "components/ArgonBox";
+import PowerBox from "components/PowerBox";
 
 const routes = [
   {
     type: "collapse",
     name: "Dashboards",
     key: "dashboards",
-    icon: <ArgonBox component="i" color="primary" fontSize="14px" className="ni ni-shop" />,
+    icon: <PowerBox component="i" color="primary" fontSize="14px" className="ni ni-shop" />,
     collapse: [
       {
         name: "Default",
@@ -23,7 +23,7 @@ const routes = [
     type: "collapse",
     name: "Authentication",
     key: "authentication",
-    icon: <ArgonBox component="i" color="error" fontSize="14px" className="ni ni-single-copy-04" />,
+    icon: <PowerBox component="i" color="error" fontSize="14px" className="ni ni-single-copy-04" />,
     collapse: [
       {
         name: "Sign In",

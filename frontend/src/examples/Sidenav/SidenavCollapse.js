@@ -1,5 +1,3 @@
- 
-
 // prop-types is a library for typechecking of props.
 import PropTypes from "prop-types";
 
@@ -11,7 +9,7 @@ import ListItemText from "@mui/material/ListItemText";
 import Icon from "@mui/material/Icon";
 
 // Gumshuda AI MUI components
-import ArgonBox from "components/ArgonBox";
+import PowerBox from "components/PowerBox";
 
 // Custom styles for the SidenavCollapse
 import {
@@ -23,16 +21,16 @@ import {
 } from "examples/Sidenav/styles/sidenavCollapse";
 
 // Gumshuda AI MUI context
-import { useArgonController } from "context";
+import { usePowerController } from "context";
 
 function SidenavCollapse({ icon, name, children, active, noCollapse, open, ...rest }) {
-  const [controller] = useArgonController();
+  const [controller] = usePowerController();
   const { miniSidenav, darkSidenav, sidenavColor } = controller;
 
   return (
     <>
       <ListItem component="li">
-        <ArgonBox
+        <PowerBox
           {...rest}
           sx={(theme) => collapseItem(theme, { active, darkSidenav, sidenavColor, miniSidenav })}
         >
@@ -56,7 +54,7 @@ function SidenavCollapse({ icon, name, children, active, noCollapse, open, ...re
           >
             expand_less
           </Icon>
-        </ArgonBox>
+        </PowerBox>
       </ListItem>
       {children && (
         <Collapse in={open} unmountOnExit>

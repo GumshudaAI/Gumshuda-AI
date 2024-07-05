@@ -1,5 +1,3 @@
- 
-
 /**
   This file is used for controlling the global states of the components,
   you can customize the states for the different components here.
@@ -11,10 +9,10 @@ import { createContext, useContext, useReducer, useMemo } from "react";
 import PropTypes from "prop-types";
 
 // The Gumshuda AI MUI main context
-const Argon = createContext(null);
+const Power = createContext(null);
 
 // Setting custom name for the context which is visible on react dev tools
-Argon.displayName = "ArgonContext";
+Power.displayName = "PowerContext";
 
 // Gumshuda AI MUI reducer
 function reducer(state, action) {
@@ -53,7 +51,7 @@ function reducer(state, action) {
 }
 
 // Gumshuda AI MUI context provider
-function ArgonControllerProvider({ children }) {
+function PowerControllerProvider({ children }) {
   const initialState = {
     miniSidenav: false,
     darkSidenav: false,
@@ -70,22 +68,22 @@ function ArgonControllerProvider({ children }) {
 
   const value = useMemo(() => [controller, dispatch], [controller, dispatch]);
 
-  return <Argon.Provider value={value}>{children}</Argon.Provider>;
+  return <Power.Provider value={value}>{children}</Power.Provider>;
 }
 
 // Gumshuda AI MUI custom hook for using context
-function useArgonController() {
-  const context = useContext(Argon);
+function usePowerController() {
+  const context = useContext(Power);
 
   if (!context) {
-    throw new Error("useArgonController should be used inside the ArgonControllerProvider.");
+    throw new Error("usePowerController should be used inside the PowerControllerProvider.");
   }
 
   return context;
 }
 
-// Typechecking props for the ArgonControllerProvider
-ArgonControllerProvider.propTypes = {
+// Typechecking props for the PowerControllerProvider
+PowerControllerProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
@@ -101,8 +99,8 @@ const setLayout = (dispatch, value) => dispatch({ type: "LAYOUT", value });
 const setDarkMode = (dispatch, value) => dispatch({ type: "DARK_MODE", value });
 
 export {
-  ArgonControllerProvider,
-  useArgonController,
+  PowerControllerProvider,
+  usePowerController,
   setMiniSidenav,
   setDarkSidenav,
   setSidenavColor,

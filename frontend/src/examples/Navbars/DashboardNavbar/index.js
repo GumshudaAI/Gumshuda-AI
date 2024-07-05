@@ -1,5 +1,3 @@
- 
-
 import { useState, useEffect } from "react";
 
 // react-router components
@@ -16,9 +14,9 @@ import Menu from "@mui/material/Menu";
 import Icon from "@mui/material/Icon";
 
 // Gumshuda AI MUI components
-import ArgonBox from "components/ArgonBox";
-import ArgonTypography from "components/ArgonTypography";
-import ArgonInput from "components/ArgonInput";
+import PowerBox from "components/PowerBox";
+import PowerTypography from "components/PowerTypography";
+import PowerInput from "components/PowerInput";
 
 // Gumshuda AI MUI example components
 import Breadcrumbs from "examples/Breadcrumbs";
@@ -36,7 +34,7 @@ import {
 
 // Gumshuda AI MUI context
 import {
-  useArgonController,
+  usePowerController,
   setTransparentNavbar,
   setMiniSidenav,
   setOpenConfigurator,
@@ -48,7 +46,7 @@ import logoSpotify from "assets/images/small-logos/logo-spotify.svg";
 
 function DashboardNavbar({ absolute, light, isMini }) {
   const [navbarType, setNavbarType] = useState();
-  const [controller, dispatch] = useArgonController();
+  const [controller, dispatch] = usePowerController();
   const { miniSidenav, transparentNavbar, fixedNavbar, openConfigurator } = controller;
   const [openMenu, setOpenMenu] = useState(false);
   const route = useLocation().pathname.split("/").slice(1);
@@ -130,7 +128,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
       sx={(theme) => navbar(theme, { transparentNavbar, absolute, light })}
     >
       <Toolbar sx={(theme) => navbarContainer(theme, { navbarType })}>
-        <ArgonBox
+        <PowerBox
           color={light && transparentNavbar ? "white" : "dark"}
           mb={{ xs: 1, md: 0 }}
           sx={(theme) => navbarRow(theme, { isMini })}
@@ -144,11 +142,11 @@ function DashboardNavbar({ absolute, light, isMini }) {
           <Icon fontSize="medium" sx={navbarDesktopMenu} onClick={handleMiniSidenav}>
             {miniSidenav ? "menu_open" : "menu"}
           </Icon>
-        </ArgonBox>
+        </PowerBox>
         {isMini ? null : (
-          <ArgonBox sx={(theme) => navbarRow(theme, { isMini })}>
-            <ArgonBox pr={1}>
-              <ArgonInput
+          <PowerBox sx={(theme) => navbarRow(theme, { isMini })}>
+            <PowerBox pr={1}>
+              <PowerInput
                 placeholder="Type here..."
                 startAdornment={
                   <Icon fontSize="small" style={{ marginRight: "6px" }}>
@@ -156,8 +154,8 @@ function DashboardNavbar({ absolute, light, isMini }) {
                   </Icon>
                 }
               />
-            </ArgonBox>
-            <ArgonBox color={light ? "white" : "inherit"}>
+            </PowerBox>
+            <PowerBox color={light ? "white" : "inherit"}>
               <Link to="/sign-in">
                 <IconButton sx={navbarIconButton} size="small">
                   <Icon
@@ -167,13 +165,13 @@ function DashboardNavbar({ absolute, light, isMini }) {
                   >
                     account_circle
                   </Icon>
-                  <ArgonTypography
+                  <PowerTypography
                     variant="button"
                     fontWeight="medium"
                     color={light && transparentNavbar ? "white" : "dark"}
                   >
                     Sign in
-                  </ArgonTypography>
+                  </PowerTypography>
                 </IconButton>
               </Link>
               <IconButton
@@ -204,8 +202,8 @@ function DashboardNavbar({ absolute, light, isMini }) {
                 <Icon>notifications</Icon>
               </IconButton>
               {renderMenu()}
-            </ArgonBox>
-          </ArgonBox>
+            </PowerBox>
+          </PowerBox>
         )}
       </Toolbar>
     </AppBar>

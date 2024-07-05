@@ -5,11 +5,11 @@ import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
 
 // Gumshuda AI MUI components
-import ArgonBox from "components/ArgonBox";
-import ArgonAvatar from "components/ArgonAvatar";
-import ArgonBadge from "components/ArgonBadge";
-import ArgonButton from "components/ArgonButton";
-import ArgonTypography from "components/ArgonTypography";
+import PowerBox from "components/PowerBox";
+import PowerAvatar from "components/PowerAvatar";
+import PowerBadge from "components/PowerBadge";
+import PowerButton from "components/PowerButton";
+import PowerTypography from "components/PowerTypography";
 
 // Images
 import team1 from "assets/images/team-1.jpg";
@@ -28,13 +28,13 @@ const data = [
 function TeamMembers() {
   return (
     <Card sx={{ height: "100%", overflow: "hidden" }}>
-      <ArgonBox p={3}>
-        <ArgonTypography variant="h5" textTransform="capitalize">
+      <PowerBox p={3}>
+        <PowerTypography variant="h5" textTransform="capitalize">
           Team members
-        </ArgonTypography>
-      </ArgonBox>
-      <ArgonBox pb={3} px={3}>
-        <ArgonBox
+        </PowerTypography>
+      </PowerBox>
+      <PowerBox pb={3} px={3}>
+        <PowerBox
           component="ul"
           display="flex"
           flexDirection="column"
@@ -44,14 +44,14 @@ function TeamMembers() {
         >
           {data.map(({ img, name, status, badge }, key) => (
             <Fragment key={key}>
-              <ArgonBox component="li" py={1}>
+              <PowerBox component="li" py={1}>
                 <Grid container spacing={3} alignItems="center">
                   <Grid item alignItems="center">
-                    <ArgonAvatar src={img} alt={name} variant="rounded" />
+                    <PowerAvatar src={img} alt={name} variant="rounded" />
                   </Grid>
                   <Grid item lineHeight={1.4}>
-                    <ArgonTypography variant="h6">{name}</ArgonTypography>
-                    <ArgonBadge
+                    <PowerTypography variant="h6">{name}</PowerTypography>
+                    <PowerBadge
                       variant="contained"
                       color={badge}
                       badgeContent={status}
@@ -60,7 +60,7 @@ function TeamMembers() {
                     />
                   </Grid>
                   <Grid item ml="auto">
-                      <ArgonButton
+                    <PowerButton
                       href="https://www.twitter.com/whynesspower2"
                       variant="outlined"
                       color="info"
@@ -68,12 +68,12 @@ function TeamMembers() {
                       target="__blank"
                     >
                       Add
-                    </ArgonButton>
+                    </PowerButton>
                   </Grid>
                 </Grid>
-              </ArgonBox>
+              </PowerBox>
               {key !== data.length - 1 && (
-                <ArgonBox
+                <PowerBox
                   component="hr"
                   sx={({ palette: { grey } }) => ({
                     borderTop: `1px solid ${grey[300]}`,
@@ -83,8 +83,8 @@ function TeamMembers() {
               )}
             </Fragment>
           ))}
-        </ArgonBox>
-      </ArgonBox>
+        </PowerBox>
+      </PowerBox>
     </Card>
   );
 }

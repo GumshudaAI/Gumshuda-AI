@@ -6,8 +6,8 @@ import Link from "@mui/material/Link";
 import Icon from "@mui/material/Icon";
 
 // Gumshuda AI MUI components
-import ArgonBox from "components/ArgonBox";
-import ArgonTypography from "components/ArgonTypography";
+import PowerBox from "components/PowerBox";
+import PowerTypography from "components/PowerTypography";
 
 // Gumshuda AI MUI base styles
 import typography from "assets/theme/base/typography";
@@ -18,17 +18,17 @@ function Footer({ company, links }) {
 
   const renderLinks = () =>
     links.map((link) => (
-      <ArgonBox key={link.name} component="li" px={2} lineHeight={1}>
+      <PowerBox key={link.name} component="li" px={2} lineHeight={1}>
         <Link href={link.href} target="_blank">
-          <ArgonTypography variant="button" fontWeight="regular" color="text">
+          <PowerTypography variant="button" fontWeight="regular" color="text">
             {link.name}
-          </ArgonTypography>
+          </PowerTypography>
         </Link>
-      </ArgonBox>
+      </PowerBox>
     ));
 
   return (
-    <ArgonBox
+    <PowerBox
       width="100%"
       display="flex"
       flexDirection={{ xs: "column", lg: "row" }}
@@ -36,7 +36,7 @@ function Footer({ company, links }) {
       alignItems="center"
       px={1.5}
     >
-      <ArgonBox
+      <PowerBox
         display="flex"
         justifyContent="center"
         alignItems="center"
@@ -46,20 +46,20 @@ function Footer({ company, links }) {
         px={1.5}
       >
         &copy; {new Date().getFullYear()}, made with
-        <ArgonBox fontSize={size.md} color="text" mb={-0.5} mx={0.25}>
+        <PowerBox fontSize={size.md} color="text" mb={-0.5} mx={0.25}>
           <Icon color="inherit" fontSize="inherit">
             favorite
           </Icon>
-        </ArgonBox>
+        </PowerBox>
         by
         <Link href={href} target="_blank">
-          <ArgonTypography variant="button" fontWeight="medium">
+          <PowerTypography variant="button" fontWeight="medium">
             &nbsp;{name}&nbsp;
-          </ArgonTypography>
+          </PowerTypography>
         </Link>
         | Respect the grind
-      </ArgonBox>
-      <ArgonBox
+      </PowerBox>
+      <PowerBox
         component="ul"
         sx={({ breakpoints }) => ({
           display: "flex",
@@ -77,8 +77,8 @@ function Footer({ company, links }) {
         })}
       >
         {renderLinks()}
-      </ArgonBox>
-    </ArgonBox>
+      </PowerBox>
+    </PowerBox>
   );
 }
 

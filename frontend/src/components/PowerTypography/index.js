@@ -1,26 +1,24 @@
- 
-
 import { forwardRef } from "react";
 
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
 
-// Custom styles for ArgonTypography
-import ArgonTypographyRoot from "components/ArgonTypography/ArgonTypographyRoot";
+// Custom styles for PowerTypography
+import PowerTypographyRoot from "components/PowerTypography/PowerTypographyRoot";
 
 // Gumshuda AI MUI context
-import { useArgonController } from "context";
+import { usePowerController } from "context";
 
-const ArgonTypography = forwardRef(
+const PowerTypography = forwardRef(
   (
     { color, fontWeight, textTransform, verticalAlign, textGradient, opacity, children, ...rest },
     ref
   ) => {
-    const [controller] = useArgonController();
+    const [controller] = usePowerController();
     const { darkMode } = controller;
 
     return (
-      <ArgonTypographyRoot
+      <PowerTypographyRoot
         {...rest}
         ref={ref}
         ownerState={{
@@ -34,13 +32,13 @@ const ArgonTypography = forwardRef(
         }}
       >
         {children}
-      </ArgonTypographyRoot>
+      </PowerTypographyRoot>
     );
   }
 );
 
-// Setting default values for the props of ArgonTypography
-ArgonTypography.defaultProps = {
+// Setting default values for the props of PowerTypography
+PowerTypography.defaultProps = {
   color: "dark",
   fontWeight: false,
   textTransform: "none",
@@ -49,8 +47,8 @@ ArgonTypography.defaultProps = {
   opacity: 1,
 };
 
-// Typechecking props for the ArgonTypography
-ArgonTypography.propTypes = {
+// Typechecking props for the PowerTypography
+PowerTypography.propTypes = {
   color: PropTypes.oneOf([
     "inherit",
     "primary",
@@ -82,4 +80,4 @@ ArgonTypography.propTypes = {
   opacity: PropTypes.number,
 };
 
-export default ArgonTypography;
+export default PowerTypography;

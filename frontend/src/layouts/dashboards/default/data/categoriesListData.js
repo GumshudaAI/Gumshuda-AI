@@ -1,7 +1,5 @@
- 
-
 // Gumshuda AI MUI components
-import ArgonTypography from "components/ArgonTypography";
+import PowerTypography from "components/PowerTypography";
 
 const categoriesListData = [
   {
@@ -11,9 +9,9 @@ const categoriesListData = [
     description: (
       <>
         250 in stock,{" "}
-        <ArgonTypography variant="caption" color="text" fontWeight="medium">
+        <PowerTypography variant="caption" color="text" fontWeight="medium">
           346+ sold
-        </ArgonTypography>
+        </PowerTypography>
       </>
     ),
     route: "/",
@@ -25,9 +23,9 @@ const categoriesListData = [
     description: (
       <>
         123 closed,{" "}
-        <ArgonTypography variant="caption" color="text" fontWeight="medium">
+        <PowerTypography variant="caption" color="text" fontWeight="medium">
           15 open
-        </ArgonTypography>
+        </PowerTypography>
       </>
     ),
     route: "/",
@@ -39,9 +37,9 @@ const categoriesListData = [
     description: (
       <>
         1 is active,{" "}
-        <ArgonTypography variant="caption" color="text" fontWeight="medium">
+        <PowerTypography variant="caption" color="text" fontWeight="medium">
           40 closed
-        </ArgonTypography>
+        </PowerTypography>
       </>
     ),
     route: "/",
@@ -52,9 +50,9 @@ const categoriesListData = [
     name: "Happy Users",
     description: (
       <>
-        <ArgonTypography variant="caption" color="text" fontWeight="medium">
+        <PowerTypography variant="caption" color="text" fontWeight="medium">
           +&nbsp;430
-        </ArgonTypography>
+        </PowerTypography>
       </>
     ),
     route: "/",

@@ -9,7 +9,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Icon from "@mui/material/Icon";
 
 // Gumshuda AI MUI components
-import ArgonBox from "components/ArgonBox";
+import PowerBox from "components/PowerBox";
 
 // Gumshuda AI MUI example components
 import Sidenav from "examples/Sidenav";
@@ -23,7 +23,7 @@ import themeDark from "assets/theme-dark";
 import routes from "./routes.js";
 
 // Gumshuda AI MUI contexts
-import { useArgonController, setMiniSidenav, setOpenConfigurator } from "context";
+import { usePowerController, setMiniSidenav, setOpenConfigurator } from "context";
 
 // Images
 import brand from "assets/images/logo-ct.png";
@@ -34,7 +34,7 @@ import "assets/css/nucleo-icons.css";
 import "assets/css/nucleo-svg.css";
 
 export default function App() {
-  const [controller, dispatch] = useArgonController();
+  const [controller, dispatch] = usePowerController();
   const { miniSidenav, direction, layout, openConfigurator, sidenavColor, darkSidenav, darkMode } =
     controller;
   const [onMouseEnter, setOnMouseEnter] = useState(false);
@@ -85,7 +85,7 @@ export default function App() {
     });
 
   const configsButton = (
-    <ArgonBox
+    <PowerBox
       display="flex"
       justifyContent="center"
       alignItems="center"
@@ -105,7 +105,7 @@ export default function App() {
       <Icon fontSize="default" color="inherit">
         settings
       </Icon>
-    </ArgonBox>
+    </PowerBox>
   );
 
   return (

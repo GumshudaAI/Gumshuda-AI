@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 // Gumshuda AI MUI components
-import ArgonBox from "components/ArgonBox";
-import ArgonTypography from "components/ArgonTypography";
-import ArgonAvatar from "components/ArgonAvatar";
-import ArgonBadge from "components/ArgonBadge";
+import PowerBox from "components/PowerBox";
+import PowerTypography from "components/PowerTypography";
+import PowerAvatar from "components/PowerAvatar";
+import PowerBadge from "components/PowerBadge";
 
 // Images
 import team2 from "assets/images/team-2.jpg";
@@ -12,32 +12,32 @@ import team4 from "assets/images/team-4.jpg";
 
 function Author({ image, name, email }) {
   return (
-    <ArgonBox display="flex" alignItems="center" px={1} py={0.5}>
-      <ArgonBox mr={2}>
-        <ArgonAvatar src={image} alt={name} size="sm" variant="rounded" />
-      </ArgonBox>
-      <ArgonBox display="flex" flexDirection="column">
-        <ArgonTypography variant="button" fontWeight="medium">
+    <PowerBox display="flex" alignItems="center" px={1} py={0.5}>
+      <PowerBox mr={2}>
+        <PowerAvatar src={image} alt={name} size="sm" variant="rounded" />
+      </PowerBox>
+      <PowerBox display="flex" flexDirection="column">
+        <PowerTypography variant="button" fontWeight="medium">
           {name}
-        </ArgonTypography>
-        <ArgonTypography variant="caption" color="secondary">
+        </PowerTypography>
+        <PowerTypography variant="caption" color="secondary">
           {email}
-        </ArgonTypography>
-      </ArgonBox>
-    </ArgonBox>
+        </PowerTypography>
+      </PowerBox>
+    </PowerBox>
   );
 }
 
 function Function({ job, org }) {
   return (
-    <ArgonBox display="flex" flexDirection="column">
-      <ArgonTypography variant="caption" fontWeight="medium" color="text">
+    <PowerBox display="flex" flexDirection="column">
+      <PowerTypography variant="caption" fontWeight="medium" color="text">
         {job}
-      </ArgonTypography>
-      <ArgonTypography variant="caption" color="secondary">
+      </PowerTypography>
+      <PowerTypography variant="caption" color="secondary">
         {org}
-      </ArgonTypography>
-    </ArgonBox>
+      </PowerTypography>
+    </PowerBox>
   );
 }
 
@@ -54,14 +54,14 @@ const authorsTableData = {
     {
       author: <Author image={team2} name="John Michael" email="john@creative-tim.com" />,
       function: <Function job="Manager" org="Organization" />,
-      status: <ArgonBadge variant="contained" badgeContent="online" color="success" size="xs" />,
+      status: <PowerBadge variant="contained" badgeContent="online" color="success" size="xs" />,
       employed: (
-        <ArgonTypography variant="caption" color="secondary" fontWeight="medium">
+        <PowerTypography variant="caption" color="secondary" fontWeight="medium">
           23/04/18
-        </ArgonTypography>
+        </PowerTypography>
       ),
       action: (
-        <ArgonTypography
+        <PowerTypography
           component="a"
           href="#"
           variant="caption"
@@ -69,20 +69,20 @@ const authorsTableData = {
           fontWeight="medium"
         >
           Edit
-        </ArgonTypography>
+        </PowerTypography>
       ),
     },
     {
       author: <Author image={team3} name="Alexa Liras" email="alexa@creative-tim.com" />,
       function: <Function job="Programator" org="Developer" />,
-      status: <ArgonBadge variant="contained" badgeContent="offline" color="secondary" size="xs" />,
+      status: <PowerBadge variant="contained" badgeContent="offline" color="secondary" size="xs" />,
       employed: (
-        <ArgonTypography variant="caption" color="secondary" fontWeight="medium">
+        <PowerTypography variant="caption" color="secondary" fontWeight="medium">
           11/01/19
-        </ArgonTypography>
+        </PowerTypography>
       ),
       action: (
-        <ArgonTypography
+        <PowerTypography
           component="a"
           href="#"
           variant="caption"
@@ -90,20 +90,20 @@ const authorsTableData = {
           fontWeight="medium"
         >
           Edit
-        </ArgonTypography>
+        </PowerTypography>
       ),
     },
     {
       author: <Author image={team4} name="Laurent Perrier" email="laurent@creative-tim.com" />,
       function: <Function job="Executive" org="Projects" />,
-      status: <ArgonBadge variant="contained" badgeContent="online" color="success" size="xs" />,
+      status: <PowerBadge variant="contained" badgeContent="online" color="success" size="xs" />,
       employed: (
-        <ArgonTypography variant="caption" color="secondary" fontWeight="medium">
+        <PowerTypography variant="caption" color="secondary" fontWeight="medium">
           19/09/17
-        </ArgonTypography>
+        </PowerTypography>
       ),
       action: (
-        <ArgonTypography
+        <PowerTypography
           component="a"
           href="#"
           variant="caption"
@@ -111,20 +111,20 @@ const authorsTableData = {
           fontWeight="medium"
         >
           Edit
-        </ArgonTypography>
+        </PowerTypography>
       ),
     },
     {
       author: <Author image={team3} name="Michael Levi" email="michael@creative-tim.com" />,
       function: <Function job="Programator" org="Developer" />,
-      status: <ArgonBadge variant="contained" badgeContent="online" color="success" size="xs" />,
+      status: <PowerBadge variant="contained" badgeContent="online" color="success" size="xs" />,
       employed: (
-        <ArgonTypography variant="caption" color="secondary" fontWeight="medium">
+        <PowerTypography variant="caption" color="secondary" fontWeight="medium">
           24/12/08
-        </ArgonTypography>
+        </PowerTypography>
       ),
       action: (
-        <ArgonTypography
+        <PowerTypography
           component="a"
           href="#"
           variant="caption"
@@ -132,20 +132,20 @@ const authorsTableData = {
           fontWeight="medium"
         >
           Edit
-        </ArgonTypography>
+        </PowerTypography>
       ),
     },
     {
       author: <Author image={team2} name="Richard Gran" email="richard@creative-tim.com" />,
       function: <Function job="Manager" org="Executive" />,
-      status: <ArgonBadge variant="contained" badgeContent="offline" color="secondary" size="xs" />,
+      status: <PowerBadge variant="contained" badgeContent="offline" color="secondary" size="xs" />,
       employed: (
-        <ArgonTypography variant="caption" color="secondary" fontWeight="medium">
+        <PowerTypography variant="caption" color="secondary" fontWeight="medium">
           04/10/21
-        </ArgonTypography>
+        </PowerTypography>
       ),
       action: (
-        <ArgonTypography
+        <PowerTypography
           component="a"
           href="#"
           variant="caption"
@@ -153,7 +153,7 @@ const authorsTableData = {
           fontWeight="medium"
         >
           Edit
-        </ArgonTypography>
+        </PowerTypography>
       ),
     },
   ],

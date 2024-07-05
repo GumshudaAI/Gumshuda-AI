@@ -1,5 +1,3 @@
- 
-
 import { forwardRef } from "react";
 
 // prop-types is a library for typechecking of props.
@@ -10,15 +8,15 @@ import MenuItem from "@mui/material/MenuItem";
 import Icon from "@mui/material/Icon";
 
 // Gumshuda AI MUI components
-import ArgonBox from "components/ArgonBox";
-import ArgonTypography from "components/ArgonTypography";
+import PowerBox from "components/PowerBox";
+import PowerTypography from "components/PowerTypography";
 
 // custom styles for the NotificationItem
 import { menuItem, menuImage } from "examples/Items/NotificationItem/styles";
 
 const NotificationItem = forwardRef(({ color, image, title, date, ...rest }, ref) => (
   <MenuItem {...rest} ref={ref} sx={(theme) => menuItem(theme)}>
-    <ArgonBox
+    <PowerBox
       width="2.25rem"
       height="2.25rem"
       mt={0.25}
@@ -28,12 +26,12 @@ const NotificationItem = forwardRef(({ color, image, title, date, ...rest }, ref
       sx={(theme) => menuImage(theme, { color })}
     >
       {image}
-    </ArgonBox>
-    <ArgonBox>
-      <ArgonTypography variant="button" textTransform="capitalize" fontWeight="regular">
+    </PowerBox>
+    <PowerBox>
+      <PowerTypography variant="button" textTransform="capitalize" fontWeight="regular">
         <strong>{title[0]}</strong> {title[1]}
-      </ArgonTypography>
-      <ArgonTypography
+      </PowerTypography>
+      <PowerTypography
         variant="caption"
         color="secondary"
         sx={{
@@ -42,7 +40,7 @@ const NotificationItem = forwardRef(({ color, image, title, date, ...rest }, ref
           mt: 0.5,
         }}
       >
-        <ArgonTypography variant="button" color="secondary">
+        <PowerTypography variant="button" color="secondary">
           <Icon
             sx={{
               lineHeight: 1.2,
@@ -51,10 +49,10 @@ const NotificationItem = forwardRef(({ color, image, title, date, ...rest }, ref
           >
             watch_later
           </Icon>
-        </ArgonTypography>
+        </PowerTypography>
         {date}
-      </ArgonTypography>
-    </ArgonBox>
+      </PowerTypography>
+    </PowerBox>
   </MenuItem>
 ));
 

@@ -1,29 +1,15 @@
-/**
-=========================================================
-* Gumshuda AI MUI - v1.0.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard-pro-material-ui
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
 
 import { forwardRef } from "react";
 
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
 
-// Custom styles for ArgonButton
-import ArgonButtonRoot from "components/ArgonButton/ArgonButtonRoot";
+// Custom styles for PowerButton
+import PowerButtonRoot from "components/PowerButton/PowerButtonRoot";
 
-const ArgonButton = forwardRef(
+const PowerButton = forwardRef(
   ({ color, variant, size, circular, iconOnly, children, ...rest }, ref) => (
-    <ArgonButtonRoot
+    <PowerButtonRoot
       {...rest}
       ref={ref}
       color="primary"
@@ -32,12 +18,12 @@ const ArgonButton = forwardRef(
       ownerState={{ color, variant, size, circular, iconOnly }}
     >
       {children}
-    </ArgonButtonRoot>
+    </PowerButtonRoot>
   )
 );
 
-// Setting default values for the props of ArgonButton
-ArgonButton.defaultProps = {
+// Setting default values for the props of PowerButton
+PowerButton.defaultProps = {
   size: "medium",
   variant: "contained",
   color: "white",
@@ -45,8 +31,8 @@ ArgonButton.defaultProps = {
   iconOnly: false,
 };
 
-// Typechecking props for the ArgonButton
-ArgonButton.propTypes = {
+// Typechecking props for the PowerButton
+PowerButton.propTypes = {
   size: PropTypes.oneOf(["small", "medium", "large"]),
   variant: PropTypes.oneOf(["text", "contained", "outlined", "gradient"]),
   color: PropTypes.oneOf([
@@ -65,4 +51,4 @@ ArgonButton.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default ArgonButton;
+export default PowerButton;

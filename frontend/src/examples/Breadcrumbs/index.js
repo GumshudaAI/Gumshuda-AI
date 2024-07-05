@@ -1,5 +1,3 @@
- 
-
 // react-router-dom components
 import { Link } from "react-router-dom";
 
@@ -11,14 +9,14 @@ import { Breadcrumbs as MuiBreadcrumbs } from "@mui/material";
 import Icon from "@mui/material/Icon";
 
 // Gumshuda AI MUI components
-import ArgonBox from "components/ArgonBox";
-import ArgonTypography from "components/ArgonTypography";
+import PowerBox from "components/PowerBox";
+import PowerTypography from "components/PowerTypography";
 
 function Breadcrumbs({ icon, title, route, light }) {
   const routes = route.slice(0, -1);
 
   return (
-    <ArgonBox mr={{ xs: 0, xl: 8 }}>
+    <PowerBox mr={{ xs: 0, xl: 8 }}>
       <MuiBreadcrumbs
         sx={{
           "& .MuiBreadcrumbs-separator": {
@@ -27,7 +25,7 @@ function Breadcrumbs({ icon, title, route, light }) {
         }}
       >
         <Link to="/">
-          <ArgonTypography
+          <PowerTypography
             component="span"
             variant="body2"
             color={light ? "white" : "dark"}
@@ -35,11 +33,11 @@ function Breadcrumbs({ icon, title, route, light }) {
             sx={{ lineHeight: 0 }}
           >
             <Icon>{icon}</Icon>
-          </ArgonTypography>
+          </PowerTypography>
         </Link>
         {routes.map((el) => (
           <Link to={`/${el}`} key={el}>
-            <ArgonTypography
+            <PowerTypography
               component="span"
               variant="button"
               fontWeight="regular"
@@ -49,10 +47,10 @@ function Breadcrumbs({ icon, title, route, light }) {
               sx={{ lineHeight: 0 }}
             >
               {el}
-            </ArgonTypography>
+            </PowerTypography>
           </Link>
         ))}
-        <ArgonTypography
+        <PowerTypography
           variant="button"
           fontWeight="regular"
           textTransform="capitalize"
@@ -60,9 +58,9 @@ function Breadcrumbs({ icon, title, route, light }) {
           sx={{ lineHeight: 0 }}
         >
           {title.replace("-", " ")}
-        </ArgonTypography>
+        </PowerTypography>
       </MuiBreadcrumbs>
-      <ArgonTypography
+      <PowerTypography
         fontWeight="bold"
         textTransform="capitalize"
         variant="h6"
@@ -70,8 +68,8 @@ function Breadcrumbs({ icon, title, route, light }) {
         noWrap
       >
         {title.replace("-", " ")}
-      </ArgonTypography>
-    </ArgonBox>
+      </PowerTypography>
+    </PowerBox>
   );
 }
 

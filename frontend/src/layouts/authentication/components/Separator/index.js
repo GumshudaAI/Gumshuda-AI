@@ -1,17 +1,15 @@
- 
-
 // @mui material components
 import Divider from "@mui/material/Divider";
 
 // Gumshuda AI MUI components
-import ArgonBox from "components/ArgonBox";
-import ArgonTypography from "components/ArgonTypography";
+import PowerBox from "components/PowerBox";
+import PowerTypography from "components/PowerTypography";
 
 function Separator() {
   return (
-    <ArgonBox position="relative" py={0.25}>
+    <PowerBox position="relative" py={0.25}>
       <Divider />
-      <ArgonBox
+      <PowerBox
         bgColor="white"
         position="absolute"
         top="50%"
@@ -20,11 +18,11 @@ function Separator() {
         lineHeight={1}
         sx={{ transform: "translate(-50%, -60%)" }}
       >
-        <ArgonTypography variant="button" fontWeight="medium" color="secondary">
+        <PowerTypography variant="button" fontWeight="medium" color="secondary">
           or
-        </ArgonTypography>
-      </ArgonBox>
-    </ArgonBox>
+        </PowerTypography>
+      </PowerBox>
+    </PowerBox>
   );
 }
 

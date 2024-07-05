@@ -1,28 +1,26 @@
- 
-
 import { forwardRef } from "react";
 
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
 
-// Custom styles for the ArgonBadge
-import ArgonBadgeRoot from "components/ArgonBadge/ArgonBadgeRoot";
+// Custom styles for the PowerBadge
+import PowerBadgeRoot from "components/PowerBadge/PowerBadgeRoot";
 
-const ArgonBadge = forwardRef(
+const PowerBadge = forwardRef(
   ({ color, variant, size, circular, indicator, border, container, children, ...rest }, ref) => (
-    <ArgonBadgeRoot
+    <PowerBadgeRoot
       {...rest}
       ownerState={{ color, variant, size, circular, indicator, border, container, children }}
       ref={ref}
       color="default"
     >
       {children}
-    </ArgonBadgeRoot>
+    </PowerBadgeRoot>
   )
 );
 
-// Setting default values for the props of ArgonBadge
-ArgonBadge.defaultProps = {
+// Setting default values for the props of PowerBadge
+PowerBadge.defaultProps = {
   color: "info",
   variant: "gradient",
   size: "sm",
@@ -33,8 +31,8 @@ ArgonBadge.defaultProps = {
   container: false,
 };
 
-// Typechecking props of the ArgonBadge
-ArgonBadge.propTypes = {
+// Typechecking props of the PowerBadge
+PowerBadge.propTypes = {
   color: PropTypes.oneOf([
     "primary",
     "secondary",
@@ -54,4 +52,4 @@ ArgonBadge.propTypes = {
   container: PropTypes.bool,
 };
 
-export default ArgonBadge;
+export default PowerBadge;

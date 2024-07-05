@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App.js";
 
 // Soft UI Context Provider
-import { ArgonControllerProvider } from "context";
+import { PowerControllerProvider } from "context";
 
 // react-perfect-scrollbar component
 import PerfectScrollbar from "react-perfect-scrollbar";
@@ -17,10 +17,10 @@ const root = createRoot(container);
 
 root.render(
   <BrowserRouter>
-    <ArgonControllerProvider>
+    <PowerControllerProvider>
       <PerfectScrollbar>
         <App />
       </PerfectScrollbar>
-    </ArgonControllerProvider>
+    </PowerControllerProvider>
   </BrowserRouter>
 );

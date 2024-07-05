@@ -1,5 +1,3 @@
- 
-
 import { useRef, useEffect, useState, useMemo } from "react";
 
 // porp-types is a library for typechecking of props
@@ -12,8 +10,8 @@ import { Line } from "react-chartjs-2";
 import Card from "@mui/material/Card";
 
 // Gumshuda AI MUI components
-import ArgonBox from "components/ArgonBox";
-import ArgonTypography from "components/ArgonTypography";
+import PowerBox from "components/PowerBox";
+import PowerTypography from "components/PowerTypography";
 
 import gradientChartLine from "assets/theme/functions/gradientChartLine";
 
@@ -54,25 +52,25 @@ function MiniGradientLineChart({ title, description, height, chart }) {
   const renderChart = (
     <>
       {title || description ? (
-        <ArgonBox pt={1} px={2}>
+        <PowerBox pt={1} px={2}>
           {title && (
-            <ArgonTypography
+            <PowerTypography
               variant="button"
               color="text"
               fontWeight="medium"
               textTransform="capitalize"
             >
               {title}
-            </ArgonTypography>
+            </PowerTypography>
           )}
           {description}
-        </ArgonBox>
+        </PowerBox>
       ) : null}
       {useMemo(
         () => (
-          <ArgonBox ref={chartRef} sx={{ height }}>
+          <PowerBox ref={chartRef} sx={{ height }}>
             <Line data={data} options={options} />
-          </ArgonBox>
+          </PowerBox>
         ),
         [chartData, height]
       )}

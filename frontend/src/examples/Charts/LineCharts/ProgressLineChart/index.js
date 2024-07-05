@@ -1,5 +1,3 @@
- 
-
 import { useMemo } from "react";
 
 // porp-types is a library for typechecking of props
@@ -13,9 +11,9 @@ import Card from "@mui/material/Card";
 import Icon from "@mui/material/Icon";
 
 // Gumshuda AI MUI components
-import ArgonBox from "components/ArgonBox";
-import ArgonTypography from "components/ArgonTypography";
-import ArgonProgress from "components/ArgonProgress";
+import PowerBox from "components/PowerBox";
+import PowerTypography from "components/PowerTypography";
+import PowerProgress from "components/PowerProgress";
 
 // ProgressLineChart configurations
 import configs from "examples/Charts/LineCharts/ProgressLineChart/config";
@@ -25,8 +23,8 @@ function ProgressLineChart({ color, icon, title, count, progress, height, chart 
 
   return (
     <Card>
-      <ArgonBox display="flex" alignItems="center" pt={2} px={2}>
-        <ArgonBox
+      <PowerBox display="flex" alignItems="center" pt={2} px={2}>
+        <PowerBox
           width="3rem"
           height="3rem"
           display="grid"
@@ -39,41 +37,41 @@ function ProgressLineChart({ color, icon, title, count, progress, height, chart 
           variant="gradient"
         >
           <Icon fontSize="default">{icon}</Icon>
-        </ArgonBox>
-        <ArgonBox ml={2} lineHeight={1}>
-          <ArgonTypography
+        </PowerBox>
+        <PowerBox ml={2} lineHeight={1}>
+          <PowerTypography
             variant="button"
             fontWeight="medium"
             textTransform="capitalize"
             color="text"
           >
             {title}
-          </ArgonTypography>
+          </PowerTypography>
           {count ? (
-            <ArgonTypography variant="h5" fontWeight="bold">
+            <PowerTypography variant="h5" fontWeight="bold">
               {count}
-            </ArgonTypography>
+            </PowerTypography>
           ) : null}
-        </ArgonBox>
-        <ArgonBox width="25%" ml="auto">
-          <ArgonTypography display="block" variant="caption" fontWeight="medium" color="text">
+        </PowerBox>
+        <PowerBox width="25%" ml="auto">
+          <PowerTypography display="block" variant="caption" fontWeight="medium" color="text">
             {progress}%
-          </ArgonTypography>
-          <ArgonBox mt={0.25}>
-            <ArgonProgress
+          </PowerTypography>
+          <PowerBox mt={0.25}>
+            <PowerProgress
               variant="gradient"
               color={color}
               value={progress}
               sx={{ height: "8px" }}
             />
-          </ArgonBox>
-        </ArgonBox>
-      </ArgonBox>
+          </PowerBox>
+        </PowerBox>
+      </PowerBox>
       {useMemo(
         () => (
-          <ArgonBox mt={2}>
+          <PowerBox mt={2}>
             <Line data={data} options={options} style={{ height }} />
-          </ArgonBox>
+          </PowerBox>
         ),
         [chart, height, color]
       )}

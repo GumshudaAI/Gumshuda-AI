@@ -1,5 +1,3 @@
- 
-
 import { useEffect } from "react";
 
 // react-router-dom components
@@ -9,13 +7,13 @@ import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 
 // Gumshuda AI MUI components
-import ArgonBox from "components/ArgonBox";
+import PowerBox from "components/PowerBox";
 
 // Gumshuda AI MUI context
-import { useArgonController, setLayout } from "context";
+import { usePowerController, setLayout } from "context";
 
 function DashboardLayout({ bgColor, children, ...rest }) {
-  const [controller, dispatch] = useArgonController();
+  const [controller, dispatch] = usePowerController();
   const { miniSidenav, darkMode } = controller;
   const { pathname } = useLocation();
 
@@ -26,7 +24,7 @@ function DashboardLayout({ bgColor, children, ...rest }) {
   const background = darkMode && !bgColor ? "transparent" : bgColor;
 
   return (
-    <ArgonBox
+    <PowerBox
       sx={({ breakpoints, transitions, functions: { pxToRem } }) => ({
         p: 3,
 
@@ -39,7 +37,7 @@ function DashboardLayout({ bgColor, children, ...rest }) {
         },
       })}
     >
-      <ArgonBox
+      <PowerBox
         bgColor={background || "info"}
         height="300px"
         width="100vw"
@@ -50,7 +48,7 @@ function DashboardLayout({ bgColor, children, ...rest }) {
         {...rest}
       />
       {children}
-    </ArgonBox>
+    </PowerBox>
   );
 }
 

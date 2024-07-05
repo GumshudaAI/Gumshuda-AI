@@ -11,8 +11,8 @@ import Link from "@mui/material/Link";
 import Icon from "@mui/material/Icon";
 
 // Gumshuda AI MUI components
-import ArgonBox from "components/ArgonBox";
-import ArgonTypography from "components/ArgonTypography";
+import PowerBox from "components/PowerBox";
+import PowerTypography from "components/PowerTypography";
 
 // Gumshuda AI MUI example components
 import SidenavCollapse from "examples/Sidenav/SidenavCollapse";
@@ -24,14 +24,14 @@ import SidenavRoot from "examples/Sidenav/SidenavRoot";
 import sidenavLogoLabel from "examples/Sidenav/styles/sidenav";
 
 // Gumshuda AI MUI context
-import { useArgonController, setMiniSidenav } from "context";
+import { usePowerController, setMiniSidenav } from "context";
 import Search from "layouts/authentication/search";
 import Post from "layouts/authentication/post-found-item";
 
 function Sidenav({ color, brand, brandName, routes, ...rest }) {
   const [openCollapse, setOpenCollapse] = useState(false);
   const [openNestedCollapse, setOpenNestedCollapse] = useState(false);
-  const [controller, dispatch] = useArgonController();
+  const [controller, dispatch] = usePowerController();
   const { miniSidenav, darkSidenav, layout } = controller;
   const location = useLocation();
   const { pathname } = location;
@@ -43,7 +43,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
       type: "collapse",
       name: "Dashboards",
       key: "dashboards",
-      icon: <ArgonBox component="i" color="primary" fontSize="14px" className="ni ni-shop" />,
+      icon: <PowerBox component="i" color="primary" fontSize="14px" className="ni ni-shop" />,
       collapse: [
         {
           name: "Home",
@@ -57,7 +57,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
       type: "collapse",
       name: "Application",
       key: "dashboards",
-      icon: <ArgonBox component="i" color="warning" fontSize="14px" className="ni ni-ui-04" />,
+      icon: <PowerBox component="i" color="warning" fontSize="14px" className="ni ni-ui-04" />,
       collapse: [
         {
           name: "Search Lost Item",
@@ -192,7 +192,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
         }
       } else if (type === "title") {
         returnValue = (
-          <ArgonTypography
+          <PowerTypography
             key={key}
             color={darkSidenav ? "white" : "dark"}
             display="block"
@@ -206,7 +206,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
             ml={1}
           >
             {title}
-          </ArgonTypography>
+          </PowerTypography>
         );
       } else if (type === "divider") {
         returnValue = <Divider key={key} light={darkSidenav} />;
@@ -218,8 +218,8 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
 
   return (
     <SidenavRoot {...rest} variant="permanent" ownerState={{ darkSidenav, miniSidenav, layout }}>
-      <ArgonBox pt={3} pb={1} px={4} textAlign="center">
-        <ArgonBox
+      <PowerBox pt={3} pb={1} px={4} textAlign="center">
+        <PowerBox
           display={{ xs: "block", xl: "none" }}
           position="absolute"
           top={0}
@@ -228,35 +228,35 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
           onClick={closeSidenav}
           sx={{ cursor: "pointer" }}
         >
-          <ArgonTypography variant="h6" color="secondary">
+          <PowerTypography variant="h6" color="secondary">
             <Icon sx={{ fontWeight: "bold" }}>close</Icon>
-          </ArgonTypography>
-        </ArgonBox>
-        <ArgonBox component={NavLink} to="/" display="flex" alignItems="center">
+          </PowerTypography>
+        </PowerBox>
+        <PowerBox component={NavLink} to="/" display="flex" alignItems="center">
           {brand && (
-            <ArgonBox component="img" src={brand} alt="Argon Logo" width="2rem" mr={0.25} />
+            <PowerBox component="img" src={brand} alt="Power Logo" width="2rem" mr={0.25} />
           )}
-          <ArgonBox
+          <PowerBox
             width={!brandName && "100%"}
             sx={(theme) => sidenavLogoLabel(theme, { miniSidenav })}
           >
-            <ArgonTypography
+            <PowerTypography
               component="h6"
               variant="button"
               fontWeight="medium"
               color={darkSidenav ? "white" : "dark"}
             >
               {brandName}
-            </ArgonTypography>
-          </ArgonBox>
-        </ArgonBox>
-      </ArgonBox>
+            </PowerTypography>
+          </PowerBox>
+        </PowerBox>
+      </PowerBox>
       <Divider light={darkSidenav} />
       <List>{renderRoutes}</List>
       {/* <List>Hello</List> */}
-      <ArgonBox pt={1} mt="auto" mb={2} mx={2}>
+      <PowerBox pt={1} mt="auto" mb={2} mx={2}>
         {/* <SidenavFooter /> */}
-      </ArgonBox>
+      </PowerBox>
     </SidenavRoot>
   );
 }

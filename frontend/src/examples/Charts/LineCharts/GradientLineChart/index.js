@@ -1,5 +1,3 @@
- 
-
 import { useRef, useEffect, useState, useMemo } from "react";
 
 // porp-types is a library for typechecking of props
@@ -12,8 +10,8 @@ import { Line } from "react-chartjs-2";
 import Card from "@mui/material/Card";
 
 // Gumshuda AI MUI components
-import ArgonBox from "components/ArgonBox";
-import ArgonTypography from "components/ArgonTypography";
+import PowerBox from "components/PowerBox";
+import PowerTypography from "components/PowerTypography";
 
 // Gumshuda AI MUI helper functions
 import gradientChartLine from "assets/theme/functions/gradientChartLine";
@@ -52,30 +50,30 @@ function GradientLineChart({ title, description, height, chart }) {
   }, [chart]);
 
   const renderChart = (
-    <ArgonBox p={2}>
+    <PowerBox p={2}>
       {title || description ? (
-        <ArgonBox px={description ? 1 : 0} pt={description ? 1 : 0}>
+        <PowerBox px={description ? 1 : 0} pt={description ? 1 : 0}>
           {title && (
-            <ArgonBox mb={1}>
-              <ArgonTypography variant="h6">{title}</ArgonTypography>
-            </ArgonBox>
+            <PowerBox mb={1}>
+              <PowerTypography variant="h6">{title}</PowerTypography>
+            </PowerBox>
           )}
-          <ArgonBox mb={2}>
-            <ArgonTypography component="div" variant="button" fontWeight="regular" color="text">
+          <PowerBox mb={2}>
+            <PowerTypography component="div" variant="button" fontWeight="regular" color="text">
               {description}
-            </ArgonTypography>
-          </ArgonBox>
-        </ArgonBox>
+            </PowerTypography>
+          </PowerBox>
+        </PowerBox>
       ) : null}
       {useMemo(
         () => (
-          <ArgonBox ref={chartRef} sx={{ height }}>
+          <PowerBox ref={chartRef} sx={{ height }}>
             <Line data={data} options={options} />
-          </ArgonBox>
+          </PowerBox>
         ),
         [chartData, height]
       )}
-    </ArgonBox>
+    </PowerBox>
   );
 
   return title || description ? <Card>{renderChart}</Card> : renderChart;

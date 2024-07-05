@@ -1,5 +1,3 @@
- 
-
 import { useEffect } from "react";
 
 // react-router-dom components
@@ -9,13 +7,13 @@ import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 
 // Gumshuda AI MUI components
-import ArgonBox from "components/ArgonBox";
+import PowerBox from "components/PowerBox";
 
 // Gumshuda AI MUI context
-import { useArgonController, setLayout } from "context";
+import { usePowerController, setLayout } from "context";
 
 function PageLayout({ background, children }) {
-  const [controller, dispatch] = useArgonController();
+  const [controller, dispatch] = usePowerController();
   const { darkMode } = controller;
 
   const { pathname } = useLocation();
@@ -25,7 +23,7 @@ function PageLayout({ background, children }) {
   }, [pathname]);
 
   return (
-    <ArgonBox
+    <PowerBox
       width="100vw"
       height="100%"
       minHeight="100vh"
@@ -33,7 +31,7 @@ function PageLayout({ background, children }) {
       sx={{ overflowX: "hidden" }}
     >
       {children}
-    </ArgonBox>
+    </PowerBox>
   );
 }
 

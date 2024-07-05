@@ -1,16 +1,14 @@
- 
-
 import { forwardRef } from "react";
 
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
 
-// Custom styles for ArgonBox
-import ArgonBoxRoot from "components/ArgonBox/ArgonBoxRoot";
+// Custom styles for PowerBox
+import PowerBoxRoot from "components/PowerBox/PowerBoxRoot";
 
-const ArgonBox = forwardRef(
+const PowerBox = forwardRef(
   ({ variant, bgColor, color, opacity, borderRadius, shadow, ...rest }, ref) => (
-    <ArgonBoxRoot
+    <PowerBoxRoot
       {...rest}
       ref={ref}
       ownerState={{ variant, bgColor, color, opacity, borderRadius, shadow }}
@@ -18,8 +16,8 @@ const ArgonBox = forwardRef(
   )
 );
 
-// Setting default values for the props of ArgonBox
-ArgonBox.defaultProps = {
+// Setting default values for the props of PowerBox
+PowerBox.defaultProps = {
   variant: "contained",
   bgColor: "#F9F9E0",
   color: "dark",
@@ -28,8 +26,8 @@ ArgonBox.defaultProps = {
   shadow: "none",
 };
 
-// Typechecking props for the ArgonBox
-ArgonBox.propTypes = {
+// Typechecking props for the PowerBox
+PowerBox.propTypes = {
   variant: PropTypes.oneOf(["contained", "gradient"]),
   bgColor: PropTypes.string,
   color: PropTypes.string,
@@ -38,4 +36,4 @@ ArgonBox.propTypes = {
   shadow: PropTypes.string,
 };
 
-export default ArgonBox;
+export default PowerBox;
