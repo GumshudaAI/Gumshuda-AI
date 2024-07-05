@@ -171,8 +171,6 @@ export default function App() {
       <Routes>
         {getRoutes(routes)}
         <Route path="*" element={<Navigate to="/home" />} />
-        {/* <Route path="/search-lost-item" element={<Navigate to="/search-lost-item" />} />
-        <Route path="/post-found-item" element={<Navigate to="/post-found-item" />} /> */}
       </Routes>
     </ThemeProvider>
   );
