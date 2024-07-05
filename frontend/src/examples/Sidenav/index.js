@@ -2,10 +2,8 @@ import { useEffect, useState } from "react";
 import Default from "layouts/dashboards/default";
 // react-router-dom components
 import { useLocation, NavLink } from "react-router-dom";
-import SignInBasic from "layouts/authentication/sign-in/basic";
 // prop-types is a library for typechecking of props.
 import PropTypes from "prop-types";
-import SignUpBasic from "layouts/authentication/sign-up/basic";
 // @mui material components
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
@@ -20,7 +18,6 @@ import ArgonTypography from "components/ArgonTypography";
 import SidenavCollapse from "examples/Sidenav/SidenavCollapse";
 import SidenavList from "examples/Sidenav/SidenavList";
 import SidenavItem from "examples/Sidenav/SidenavItem";
-import SidenavFooter from "examples/Sidenav/SidenavFooter";
 
 // Custom styles for the Sidenav
 import SidenavRoot from "examples/Sidenav/SidenavRoot";
@@ -73,26 +70,6 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
           key: "post-found-item",
           route: "/post-found-item",
           component: <Post />,
-        },
-      ],
-    },
-    {
-      type: "collapse",
-      name: "Your Account",
-      key: "dashboards",
-      icon: <ArgonBox component="i" color="success" fontSize="14px" className="ni ni-spaceship" />,
-      collapse: [
-        {
-          name: "SignIn",
-          key: "SignIn",
-          route: "/sign-in",
-          component: <SignInBasic />,
-        },
-        {
-          name: "SignUp",
-          key: "SignUp",
-          route: "/sign-up",
-          component: <SignUpBasic />,
         },
       ],
     },
