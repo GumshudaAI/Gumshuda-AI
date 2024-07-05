@@ -11,7 +11,7 @@ import ArgonButton from "components/ArgonButton";
 import CircularProgress from "@mui/material/CircularProgress";
 // Authentication layout components
 import BasicLayout from "layouts/authentication/components/BasicLayout";
-import Footer from "examples/Footer";
+
 
 const bgImage =
   "https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-basic.jpg";

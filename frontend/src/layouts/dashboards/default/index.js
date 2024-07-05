@@ -13,25 +13,15 @@ import ArgonTypography from "components/ArgonTypography";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
-import DetailedStatisticsCard from "examples/Cards/StatisticsCards/DetailedStatisticsCard";
-import SalesTable from "examples/Tables/SalesTable";
-import Table from "examples/Tables/Table";
-import CategoriesList from "examples/Lists/CategoriesList";
 import GradientLineChart from "examples/Charts/LineCharts/GradientLineChart";
-import ComImage from "./data/favicon.png";
-// Gumshuda AI MUI base styles
+
 import typography from "assets/theme/base/typography";
 
 // Dashboard layout components
-import Slider from "layouts/dashboards/default/components/Slider";
+
 import TeamMembers from "layouts/dashboards/default/components/TeamMembers";
 import TodoList from "layouts/dashboards/default/components/TodoList";
-import ProgressTrack from "layouts/dashboards/default/components/ProgressTrack";
 import BalanceCard from "layouts/dashboards/default/components/BalanceCard";
-
-// Pages layout components
-import Post from "layouts/pages/profile/teams/components/Post";
-
 import gradientLineChartData from "layouts/dashboards/default/data/gradientLineChartData";
 
 function Default() {
