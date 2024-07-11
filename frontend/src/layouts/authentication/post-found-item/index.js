@@ -14,7 +14,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import BasicLayout from "layouts/authentication/components/BasicLayout";
 
 const bgImage =
-  "https://raw.githubuserconasic.jpg";
+  "https://raw.githubusercontent.com/whynesspower/next-js-landing-pages/main/background.jpg";
 
 function Post() {
   const [postSuccess, setPostSuccess] = useState(false);

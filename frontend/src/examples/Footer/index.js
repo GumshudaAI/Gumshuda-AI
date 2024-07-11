@@ -57,7 +57,7 @@ function Footer({ company, links }) {
             &nbsp;{name}&nbsp;
           </PowerTypography>
         </Link>
-        | Respect the grind
+        | On to the next one 🥂
       </PowerBox>
       <PowerBox
         component="ul"
@@ -84,12 +84,12 @@ function Footer({ company, links }) {
 
 // Setting default values for the props of Footer
 Footer.defaultProps = {
-  company: { href: "https://www.whynesspower.tech", name: "Yashraj Shukla" },
+  company: { href: "https://x.com/whynesspower", name: "Yashraj Shukla" },
   links: [
     { href: "https://www.linkedin.com/in/whynesspower/", name: "Yashraj Shukla" },
-    { href: "https://www.whynesspower.tech/", name: "About Us" },
-    { href: "https://www.whynesspower.tech/", name: "Blog" },
-    { href: "https://www.whynesspower.tech/", name: "License" },
+    { href: "https://x.com/whynesspower", name: "About Us" },
+    { href: "https://x.com/whynesspower", name: "Blog" },
+    { href: "https://x.com/whynesspower", name: "License" },
   ],
 };
 

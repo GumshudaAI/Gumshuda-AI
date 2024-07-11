@@ -12,7 +12,8 @@ import CircularProgress from "@mui/material/CircularProgress";
 // Authentication layout components
 import BasicLayout from "layouts/authentication/components/BasicLayout";
 
-const bgImage = "https://www.example.com/image";
+const bgImage =
+  "https://raw.githubusercontent.com/whynesspower/next-js-landing-pages/main/background.jpg";
 
 function Search() {
   const [file, setFile] = useState(null);

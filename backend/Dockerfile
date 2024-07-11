@@ -1,4 +1,4 @@
-FROM python:3.9
+FROM python:3.9.19-slim 
 
 # Set the working directory in the container
 WORKDIR /app
@@ -15,4 +15,4 @@ COPY . .
 EXPOSE 8000
 
 # Specify the command to run on container start
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "main:app", "--host","0.0.0.0", "--port", "8000"]
