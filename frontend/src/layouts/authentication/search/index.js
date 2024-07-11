@@ -45,7 +45,7 @@ function Search() {
     formData.append("image", file);
     console.log("FormData:", formData);
     try {
-      const response = await axios.post("http://localhost:8000/get_results/", formData, {
+      const response = await axios.post("https://wmumfbmzka.ap-south-1.awsapprunner.com/get_results/", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -194,11 +194,16 @@ function Search() {
                 textAlign="center"
               >
                 <img src={link} style={{ width: "320px", height: "250px" }} alt={`${index}`} />
-                <PowerBox mt={4} mb={1}>
-                  <PowerButton type="button" onClick={handleClaim} color="success" fullWidth>
-                    Claim Item!
-                  </PowerButton>
-                </PowerBox>
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSdv4_7tAXWjtUd0OUHKjLngpuMNIc1DBl9lT4nbucQ2uFw65g/viewform?usp=sf_link"
+                  target="_blank"
+                >
+                  <PowerBox mt={4} mb={1}>
+                    <PowerButton type="button" onClick={handleClaim} color="success" fullWidth>
+                      Claim Item!
+                    </PowerButton>
+                  </PowerBox>
+                </a>
               </PowerBox>
             ))}
           </PowerBox>

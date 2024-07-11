@@ -45,11 +45,15 @@ function Post() {
     formData.append("image", file);
     console.log("FormData:", formData);
     try {
-      const response = await axios.post("http://localhost:8000/post_request/", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      const response = await axios.post(
+        "https://wmumfbmzka.ap-south-1.awsapprunner.com/post_request/",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
       setPostSuccess(true);
       setLoader(false);
       console.log("Response:", response.data);

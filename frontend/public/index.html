@@ -7,6 +7,7 @@
     <meta name="theme-color" content="#11cdef" />
     <link rel="apple-touch-icon" sizes="76x76" href="%PUBLIC_URL%/favicon.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
     <title>Gumshuda AI</title>
     <link
       rel="stylesheet"
@@ -23,7 +24,17 @@
       rel="stylesheet"
     />
   </head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RH72M7P5LH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
 
+    gtag("config", "G-RH72M7P5LH");
+  </script>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
