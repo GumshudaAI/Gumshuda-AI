@@ -6,6 +6,7 @@
 .pnp.js
 **/env/
 **/venv/
+backend/pushToECR.sh
 venv/
 **/.dockerignore
 /backend/venv/
