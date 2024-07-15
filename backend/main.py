@@ -7,6 +7,7 @@ from services.embedding_service import generate_embeddings
 from services.image_service import get_url
 from services.vector_service import initialize_vector_db, upsert_vector, query_vector
 from utils import hybrid_scale
+import datetime
 
 app = FastAPI()
 
@@ -78,5 +79,30 @@ async def get_results(finalData: str = Form(...), image: UploadFile = File(...))
     if not result['matches']:
         raise HTTPException(status_code=404, detail="No matching results found")
 
-    img_urls = [r['metadata']['style_image'] for r in result['matches']]
-    return JSONResponse(content={'images': img_urls}, status_code=200)
+
+
+
+    # Convert the result to a JSON-serializable format
+    json_result = {
+        "matches": [
+            {
+                "id": match["id"],
+                "metadata": {
+                    "city": match["metadata"]["city"],
+                    "date": match["metadata"]["date"].isoformat(),  # Convert date to string
+                    "description": match["metadata"]["description"],
+                    "name": match["metadata"]["name"],
+                    "style_image": match["metadata"]["style_image"]
+                },
+                "score": match["score"],
+                "values": match["values"]
+            } for match in result["matches"]
+        ],
+        "namespace": result.get("namespace"),
+        "usage": result.get("usage")
+    }
+
+    # img_urls = [r['metadata']['style_image'] for r in result['matches']]
+    # print(result)
+    
+    return JSONResponse(content={'result': json_result}, status_code=200)

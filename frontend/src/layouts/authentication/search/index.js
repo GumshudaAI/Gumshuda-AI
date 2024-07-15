@@ -2,15 +2,13 @@ import { useState } from "react";
 import React from "react";
 import axios from "axios";
 import Card from "@mui/material/Card";
-
-// Gumshuda AI MUI components
+import CircularProgress from "@mui/material/CircularProgress";
+import BasicLayout from "layouts/authentication/components/BasicLayout";
 import PowerBox from "components/PowerBox";
 import PowerTypography from "components/PowerTypography";
 import PowerInput from "components/PowerInput";
 import PowerButton from "components/PowerButton";
-import CircularProgress from "@mui/material/CircularProgress";
-// Authentication layout components
-import BasicLayout from "layouts/authentication/components/BasicLayout";
+import DetailsModal from "components/DetailsModal"; // Import the DetailsModal component
 
 const bgImage =
   "https://raw.githubusercontent.com/whynesspower/next-js-landing-pages/main/background.jpg";
@@ -22,14 +20,15 @@ function Search() {
   const [date, setDate] = useState("");
   const [name, setName] = useState("");
   const [loader, setLoader] = useState(false);
-  // const [postSuccess, setPostSuccess] = useState(false);
   const [images, setImages] = useState([]);
   const [showImages, setShowImages] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(null); // State to manage the selected item
+  const [openModal, setOpenModal] = useState(false); // State to manage modal open/close
+
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
   };
 
-  const handleClaim = async (e) => {};
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoader(true);
@@ -45,21 +44,35 @@ function Search() {
     formData.append("image", file);
     console.log("FormData:", formData);
     try {
-      const response = await axios.post("https://wmumfbmzka.ap-south-1.awsapprunner.com/get_results/", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      const response = await axios.post(
+        "https://wmumfbmzka.ap-south-1.awsapprunner.com/get_results/",
+        // "http://localhost:8000/get_results/",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
       setShowImages(true);
-      setImages(response.data.images);
+      setImages(response.data.result.matches);
       setLoader(false);
-      console.log("Response:", response.data.images);
+      console.log("Response:", response.data.result.matches);
     } catch (error) {
       setShowImages(false);
       setLoader(false);
       console.error("Error:", error);
-      console.error("Error:", error);
     }
+  };
+
+  const handleOpenModal = (item) => {
+    setSelectedItem(item);
+    setOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
+    setSelectedItem(null);
   };
 
   return (
@@ -85,14 +98,7 @@ function Search() {
 
               <PowerBox component="form" role="form">
                 <PowerBox mb={1} textAlign="left">
-                  <PowerTypography
-                    display="inline"
-                    variant="h6"
-                    color="dark"
-                    fontWeight="regular"
-                    // align="left"
-                    // sx={{ mb: 2 }}
-                  >
+                  <PowerTypography display="inline" variant="h6" color="dark" fontWeight="regular">
                     Name of the item:
                   </PowerTypography>
                   <PowerInput
@@ -124,14 +130,7 @@ function Search() {
                   />
                 </PowerBox>
                 <PowerBox mb={1} textAlign="left">
-                  <PowerTypography
-                    display="inline"
-                    variant="h6"
-                    color="dark"
-                    fontWeight="regular"
-                    // align="left"
-                    // sx={{ mb: 2 }}
-                  >
+                  <PowerTypography display="inline" variant="h6" color="dark" fontWeight="regular">
                     When did you lose it?
                   </PowerTypography>
                   <PowerInput
@@ -162,7 +161,6 @@ function Search() {
           </Card>
         </BasicLayout>
       )}
-
       {loader && (
         <BasicLayout image={bgImage}>
           <PowerBox color="white">
@@ -180,11 +178,11 @@ function Search() {
             lg={12}
             xl={12}
           >
-            {images.map((link, index) => (
+            {images.map((item, index) => (
               <PowerBox
                 key={index}
                 color="white"
-                bgColor="dark"
+                bgColor="red"
                 variant="gradient"
                 borderRadius="md"
                 shadow="lg"
@@ -192,24 +190,33 @@ function Search() {
                 p={1}
                 m={1}
                 textAlign="center"
+                onClick={() => handleOpenModal(item)} // Open modal on click
               >
-                <img src={link} style={{ width: "320px", height: "250px" }} alt={`${index}`} />
-                <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSdv4_7tAXWjtUd0OUHKjLngpuMNIc1DBl9lT4nbucQ2uFw65g/viewform?usp=sf_link"
-                  target="_blank"
-                >
-                  <PowerBox mt={4} mb={1}>
-                    <PowerButton type="button" onClick={handleClaim} color="success" fullWidth>
-                      Claim Item!
-                    </PowerButton>
-                  </PowerBox>
-                </a>
+                <img
+                  src={item.metadata.style_image}
+                  style={{ width: "320px", height: "250px" }}
+                  alt={`${index}`}
+                />
+                <PowerTypography variant="h6" component="h2">
+                  {item.metadata.name}
+                </PowerTypography>
+                <PowerTypography sx={{ mt: 2 }}>
+                  Description: {item.metadata.description}
+                </PowerTypography>
+                <PowerTypography sx={{ mt: 2 }}>City: {item.metadata.city}</PowerTypography>
+                <PowerTypography sx={{ mt: 2 }}>Date: {item.metadata.date}</PowerTypography>
+                <PowerBox mt={4} mb={1}>
+                  <PowerButton type="button" color="success" fullWidth>
+                    Claim Item!
+                  </PowerButton>
+                </PowerBox>
               </PowerBox>
             ))}
           </PowerBox>
         </BasicLayout>
       )}
-      {/* <Footer /> */}
+      <DetailsModal open={openModal} handleClose={handleCloseModal} item={selectedItem} />{" "}
+      {/* Modal component */}
     </>
   );
 }
