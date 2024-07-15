@@ -19,7 +19,9 @@ import typography from "assets/theme/base/typography";
 
 // Dashboard layout components
 
-import TeamMembers from "layouts/dashboards/default/components/TeamMembers";
+// import TeamMembers from "layouts/dashboards/default/components/TeamMembers";
+import BuyMeACoffee from "layouts/dashboards/default/components/BuyMeACoffee";
+
 import TodoList from "layouts/dashboards/default/components/TodoList";
 import BalanceCard from "layouts/dashboards/default/components/BalanceCard";
 import gradientLineChartData from "layouts/dashboards/default/data/gradientLineChartData";
@@ -136,10 +138,8 @@ function Default() {
           </Grid>
           <Grid container spacing={3} m={2}>
             <Grid item xs={12} md={6} lg={4}>
-              <TeamMembers />
-            </Grid>
-            <Grid item xs={12} md={6} lg={4}>
-              <TodoList />
+              {/* <TeamMembers /> */}
+              <BuyMeACoffee />
             </Grid>
           </Grid>
         </Grid>
