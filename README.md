@@ -2,6 +2,36 @@
 
 https://youtu.be/rmR56sffJNs?si=5kFHzQZjCUmAKueC
 
+### FAQ
+
+About Gumshuda AI
+🚀 Generative AI App for Lost and Found Belongings
+
+Using Open AI's clip-vit-large model, this app creates image embeddings and searches them using natural language, powered by a vector database.
+🎯 Objective:
+Our innovative application aims to revolutionize and streamline the process of locating and reuniting lost objects with their rightful owners. The current system, characterized by delayed response times, limited reporting options, and inefficient communication among authorities, often leaves individuals in distress with no viable means to track their missing possessions.
+
+
+What is Gumshuda AI?
+
+🧠 It's a Generative AI-powered platform for Lost and Found belongings.
+
+How can I use it?
+
+📦 Due to resource constraints, it's not hosted/deployed to a service yet. We hope to achieve it soon.
+
+Where is the GitHub repository for it?
+
+💻 There is some pending code cleaning going on before the project is made open source for everyone to contribute and use.
+
+How does it work?
+
+🛠️ It uses the clip-vit-large model to create a combination of sparse and dense vector embeddings and stores them in a vector database (in my case- pinecone). It utilizes the KNN (K-Nearest Neighbour) to find the closest matching vectors and returns the results accordingly.
+
+What is Talaash AI?
+
+🔄 It's the previous name/version of Gumshuda AI.
+
 # How to setup locally?
 
 ## Backend:
